@@ -39,6 +39,8 @@ class MSBuildXmlProjectType(Enum):
             raise Exception("Unexpected file type [{}]".format(path))
 
 
+# TODO: sometimes variables may contain another variables within yourself
+# Need consider this case
 def get_string_variables(string):
     return re.findall(r'\$\(.+?\)', string)
 
