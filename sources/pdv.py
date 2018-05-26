@@ -1,42 +1,71 @@
 import os
 import sys
 import pathlib
+# TODO: consider using xml.etree.ElementTree
 import xml.dom
 import xml.dom.minidom as minidom
-from enum import Enum
+import enum
 import argparse
 import configparser
 import re
+import logging
 
 import graphviz
+
 
 # projects config is intended to resolve variables in the projects paths
 _global_projects_config = configparser.ConfigParser()
 
 
-class MSBuildXmlProjectType(Enum):
-    XPROJ = 'proj'    # vcxproj, vbproj, csproj, pyproj, etc.
-    PROPS = '.props'
-    TARGETS = '.targets'
+def get_attribute_values(dom, tag, attribute, masks):
+    '''Returns a list of found values of attributes under the given tag
+       that matches any of masks'''
 
-    def get_project_class(self):
-        return {MSBuildXmlProjectType.XPROJ: XProject,
-                MSBuildXmlProjectType.PROPS: PropsProject,
-                MSBuildXmlProjectType.TARGETS: TargetsProject}[self]
+    if dom is None:
+        return None
 
-    @staticmethod
-    def get_project_by_path(path):
-        abs_path = os.path.abspath(path)
-        abs_path_lower = abs_path.lower()
+    values = []
 
-        if abs_path_lower.endswith(MSBuildXmlProjectType.XPROJ.value):
-            return XProject(abs_path)
-        elif abs_path_lower.endswith(MSBuildXmlProjectType.PROPS.value):
-            return PropsProject(abs_path)
-        elif abs_path_lower.endswith(MSBuildXmlProjectType.TARGETS.value):
-            return TargetsProject(abs_path)
-        else:
-            raise Exception("Unexpected file type [{}]".format(path))
+    tag_nodes = dom.getElementsByTagName(tag)
+    for tag_node in tag_nodes:
+        if tag_node.hasAttribute(attribute):
+            # TODO: values may be found with a condition
+            # Example: <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+            # so we should take into account this case
+            value = tag_node.getAttribute(attribute)
+            if not masks:
+                # allow any dependency
+                values.append(value)
+            else:
+                # search for matches under mask
+                for mask in masks:
+                    if value.lower().endswith(mask):
+                        values.append(value)
+                        break
+
+    return values
+
+class MSBuildItems(enum.Enum):
+    ITEM_PROJECT_REF = 'ProjectReference'
+    ITEM_PROJECT_REF2 = 'ProjectReference2'
+    ITEM_IMPORT = 'Import'
+
+    def get_attribute(self):
+        return { MSBuildItems.ITEM_PROJECT_REF: 'Include',
+                 MSBuildItems.ITEM_PROJECT_REF2: 'Include',
+                 MSBuildItems.ITEM_IMPORT: 'Project'
+               }[self]
+
+    def get_dependencies(self, project_dom, masks):
+        '''Returns a list of found values of the corresponding attribute under self.value tag'''
+        return get_attribute_values(project_dom, self.value, self.get_attribute(), masks)
+
+
+class MSBuildItemDependencyInfo():
+    def __init__(self, item_name, masks):
+        self.item = MSBuildItems(item_name)
+        self.dependencies_masks =\
+            [mask.lower() for mask in masks] if masks else None
 
 
 # TODO: sometimes variables may contain another variables within yourself
@@ -71,9 +100,10 @@ def is_standard_project(project_filepath):
     return False
 
 class MSBuildXmlProject:
-    '''Instance of this class is "*proj" or "*.props" or "*.targets" file'''
-    def __init__(self, project_file_path):
+    '''Instance of this class is any MSBuld project like "*proj" or "*.props" or "*.targets" file'''
+    def __init__(self, project_file_path, dependenies_info):
         self.file_path = project_file_path
+        self.dependenies_info = dependenies_info
         self.proj_dependencies = set()
         self._dom = None
         self._number = None
@@ -92,7 +122,7 @@ class MSBuildXmlProject:
 
     def _add_project_dependency(self, project):
         if project in self.proj_dependencies:
-            print('Project [{}] already present as dependency for [{}]'.format(
+            logging.info('Project [{}] already present as dependency for [{}]'.format(
                 project.get_project_filepath(), self.get_project_filepath()))
             return
 
@@ -101,10 +131,18 @@ class MSBuildXmlProject:
     def _get_project_dom(self):
         if self._dom is None:
             if not self.is_project_exists():
-                print("Failed to parse xml. File [{}] not found.".format(self.file_path))
+                logging.warning("Failed to parse xml. File [{}] not found.".format(self.file_path))
                 return None
             self._dom = minidom.parse(self.file_path)
         return self._dom
+
+    @staticmethod
+    def _get_proj_ref_node_tag_value(prject_node, tag):
+        for node in prject_node.childNodes:
+            if (node.nodeType == node.ELEMENT_NODE and
+                    node.tagName == tag):
+                return node.firstChild.nodeValue
+        return None
 
     def is_project_exists(self):
         return os.path.isfile(self.file_path)
@@ -149,170 +187,81 @@ class MSBuildXmlProject:
     def get_number(self):
         return self._number
 
-    def get_configuration_types(self):
-        return None
+    @staticmethod
+    def _get_dom_node_value(node):
+        value = None
+        if node.firstChild.nodeType == xml.dom.Node.TEXT_NODE:
+            value = node.firstChild.nodeValue
 
-    def _collect_props_or_targets_dependencies(self, dep_type, all_projects,
-                                               new_detected_projects):
-        if (dep_type is not MSBuildXmlProjectType.TARGETS and
-                dep_type is not MSBuildXmlProjectType.PROPS):
-            raise Exception('Incorrect dependency type specified')
-
-        this_project_dom = self._get_project_dom()
-
-        if this_project_dom is None:
-            return
-
-        imports = this_project_dom.getElementsByTagName('Import')
-        for element in imports:
-            if element.hasAttribute('Project'):
-                project_attr = element.getAttribute('Project')
-                project_attr_lower = project_attr.lower()
-
-                # TODO: projects can be imported with a condition
-                # so we should take into account this case
-                if project_attr_lower.endswith(dep_type.value):
-                    project_abs_path = self._get_project_abs_path(project_attr)
-                    project_abs_path_lower = project_abs_path.lower()
-                    if project_abs_path_lower not in all_projects:
-                        current_project_dependency = \
-                            dep_type.get_project_class()(project_abs_path)
-                        new_detected_projects.add(current_project_dependency)
-                    else:
-                        current_project_dependency = all_projects[project_abs_path_lower]
-
-                    self._add_project_dependency(current_project_dependency)
-
-    def collect_project_dependencies(self, all_projects, new_detected_projects,
-                                     dependencies_type):
-        if not self.is_project_exists():
-            return
-
-        if dependencies_type == MSBuildXmlProjectType.XPROJ:
-            self.collect_proj_ref_dependencies(all_projects, new_detected_projects)
-        elif dependencies_type == MSBuildXmlProjectType.PROPS:
-            self.collect_props_dependencies(all_projects, new_detected_projects)
-        elif dependencies_type == MSBuildXmlProjectType.TARGETS:
-            self.collect_targets_dependencies(all_projects, new_detected_projects)
-        else:
-            raise Exception("Incorrect dependencies type given=[{0}]".format(
-                dependencies_type))
-
-    def collect_proj_ref_dependencies(self, all_projects, new_detected_projects):
-        raise Exception("collect_proj_ref_dependencies() for the "
-                        "MSBuildXmlProject class is not implemented")
-
-    def collect_props_dependencies(self, all_projects, new_detected_projects):
-        raise Exception("collect_props_dependencies() for the "
-                        "MSBuildXmlProject class is not implemented")
-
-    def collect_targets_dependencies(self, all_projects, new_detected_projects):
-        raise Exception("collect_targets_dependencies() for the "
-                        "MSBuildXmlProject class is not implemented")
-
-
-class XProject(MSBuildXmlProject):
-    '''Instance of this class is representation of
-       ".vcxproj", ".vbproj", ".csproj", ".pyproj", etc. file'''
-
-    def __init__(self, project_file_path):
-        super().__init__(project_file_path)
+        return value
 
     @staticmethod
-    def _get_proj_ref_node_tag_value(prject_node, tag):
-        for node in prject_node.childNodes:
+    def _get_dom_child_node_value_by_tag(parent_node, tag):
+        for node in parent_node.childNodes:
             if (node.nodeType == node.ELEMENT_NODE and
                     node.tagName == tag):
                 return node.firstChild.nodeValue
         return None
 
-    def collect_proj_ref_dependencies(self, all_projects, new_detected_projects):
-        this_project_dom = self._get_project_dom()
+    @staticmethod
+    def _get_dom_nodes_values_by_tag(dom, tag):
+        result = []
 
-        if this_project_dom is None:
-            return
+        nodes = dom.getElementsByTagName(tag)
+        for node in nodes:
+            value = MSBuildXmlProject._get_dom_node_value(node)
+            if value:
+                result.append(value)
 
-        projects_ref_nodes = this_project_dom.getElementsByTagName('ProjectReference')
+        return result
 
-        for project_node in projects_ref_nodes:
-            if project_node.hasAttribute('Include'):
-                project_ref_path = project_node.getAttribute('Include')
-
-                if project_ref_path.lower().endswith(MSBuildXmlProjectType.XPROJ.value):
-                    project_abs_path = self._get_project_abs_path(project_ref_path)
-                    project_abs_path_lower = project_abs_path.lower()
-                    if project_abs_path_lower not in all_projects:
-                        current_project_dependency = XProject(project_abs_path)
-                        new_detected_projects.add(current_project_dependency)
-
-                        #project_ref_guid = XProject._get_proj_ref_node_tag_value(
-                        #    project_node, 'Project')
-                        #project_ref_name = XProject._get_proj_ref_node_tag_value(
-                        #    project_node, 'Name')
-                        #print('GUID = [{}]\nNAME = [{}]'.format(
-                        #    project_ref_guid, project_ref_name))
-                    else:
-                        current_project_dependency = all_projects[project_abs_path_lower]
-
-                    self._add_project_dependency(current_project_dependency)
-
-    def collect_props_dependencies(self, all_projects, new_detected_projects):
-        super()._collect_props_or_targets_dependencies(
-            MSBuildXmlProjectType.PROPS, all_projects, new_detected_projects)
-
-    def collect_targets_dependencies(self, all_projects, new_detected_projects):
-        super()._collect_props_or_targets_dependencies(
-            MSBuildXmlProjectType.TARGETS, all_projects, new_detected_projects)
-
-    def get_configuration_types(self):
+    def get_output_types(self):
         this_project_dom = self._get_project_dom()
 
         if this_project_dom is None:
             return None
 
-        config_type_nodes = this_project_dom.getElementsByTagName('ConfigurationType')
-        config_types = set()
-        for type_node in config_type_nodes:
-            if type_node.firstChild.nodeType == xml.dom.Node.TEXT_NODE:
-                config_types.add(type_node.firstChild.nodeValue)
+        output_types = set()
 
-        return config_types if config_types else None
+        # For *.vcxproj output type stored under tag 'ConfigurationType'
+        config_type_values = MSBuildXmlProject._get_dom_nodes_values_by_tag(
+            this_project_dom, 'ConfigurationType')
+        if config_type_values:
+            output_types.update(config_type_values)
 
+        # For *.csproj output type stored under tag 'OutputType'
+        output_values = MSBuildXmlProject._get_dom_nodes_values_by_tag(
+            this_project_dom, 'OutputType')
+        if output_values:
+            output_types.update(output_values)
 
-class PropsProject(MSBuildXmlProject):
+        return output_types if output_types else None
 
-    def __init__(self, projectFilePath):
-        super().__init__(projectFilePath)
+    def _collect_dependencies_attribute_by_info(self, all_projects, new_detected_projects, info):
+        this_project_dom = self._get_project_dom()
 
-    def collect_proj_ref_dependencies(self, all_projects, new_detected_projects):
-        raise Exception("collect_proj_ref_dependencies() for the "
-                        "PropsProject class is not implemented")
+        if this_project_dom is None:
+            return
 
-    def collect_targets_dependencies(self, all_projects, new_detected_projects):
-        raise Exception("collect_targets_dependencies() for the "
-                        "PropsProject class is not implemented")
+        dependencies_list = info.item.get_dependencies(this_project_dom, info.dependencies_masks)
+        for dependency in dependencies_list:
+            dependency_abs_path = self._get_project_abs_path(dependency)
+            dependency_abs_path_lower = dependency_abs_path.lower()
+            if dependency_abs_path_lower not in all_projects:
+                current_project_dependency =\
+                    MSBuildXmlProject(dependency_abs_path, self.dependenies_info)
+                new_detected_projects.add(current_project_dependency)
+            else:
+                current_project_dependency = all_projects[dependency_abs_path_lower]
 
-    def collect_props_dependencies(self, all_projects, new_detected_projects):
-        super()._collect_props_or_targets_dependencies(
-            MSBuildXmlProjectType.PROPS, all_projects, new_detected_projects)
+            self._add_project_dependency(current_project_dependency)
 
+    def collect_dependencies(self, all_projects, new_detected_projects):
+        if not self.is_project_exists():
+            return
 
-class TargetsProject(MSBuildXmlProject):
-
-    def __init__(self, projectFilePath):
-        super().__init__(projectFilePath)
-
-    def collect_proj_ref_dependencies(self, all_projects, new_detected_projects):
-        raise Exception("collect_proj_ref_dependencies() for the "
-                        "TargetsProject class is not implemented")
-
-    def collect_props_dependencies(self, all_projects, new_detected_projects):
-        raise Exception("collect_props_dependencies() for the "
-                        "TargetsProject class is not implemented")
-
-    def collect_targets_dependencies(self, all_projects, new_detected_projects):
-        super()._collect_props_or_targets_dependencies(
-            MSBuildXmlProjectType.TARGETS, all_projects, new_detected_projects)
+        for info in self.dependenies_info:
+            self._collect_dependencies_attribute_by_info(all_projects, new_detected_projects, info)
 
 
 class DirectoryNode:
@@ -359,7 +308,7 @@ class DirectoryPathsBranch:
             last_node_obj = pathlib.PurePath(self.nodes[-1].get_directory_name())
 
             if last_node_obj == directory_path_obj:
-                print("Path [{}] already added to the branch".format(last_node_obj))
+                logging.info("Path [{}] already added to the branch".format(last_node_obj))
                 return
 
             if last_node_obj not in directory_path_obj.parents:
@@ -473,14 +422,12 @@ def print_directory_tree(root_node):
 
 class DependenciesCollector:
     '''This class is intended to collect dependencies of the MSBuildXml projects'''
-    def __init__(self, ms_build_project_type):
-        self.type = ms_build_project_type
+    def __init__(self, dependenies_info):
+        self.dependenies_info = dependenies_info
 
     def collect_dependencies(self, project_file_paths_list):
-        projects = set()
-        for path in project_file_paths_list:
-            next_project = MSBuildXmlProjectType.get_project_by_path(path)
-            projects.add(next_project)
+        projects = set(MSBuildXmlProject(path, self.dependenies_info)
+                       for path in project_file_paths_list)
 
         all_projects = dict((project.get_project_filepath().lower(), project)
                             for project in projects)
@@ -492,9 +439,8 @@ class DependenciesCollector:
             project = projects_to_process.pop()
             # search for project dependencies
             new_detected_projects.clear()
-            project.collect_project_dependencies(all_projects,
-                                                 new_detected_projects,
-                                                 self.type)
+            project.collect_dependencies(all_projects,
+                                         new_detected_projects)
             processed_projects.add(project)
 
             # populate all_projects with a new found projects
@@ -565,28 +511,35 @@ class ProjectDependencyPrinter:
         dot_graph.attr('node', **default_node_style)
 
     @staticmethod
-    def get_project_config_type_color(project):
+    def get_project_output_type_color(project):
         project_colors_dict = dict({
             'DEFAULT': 'brown',
             'MIXED': 'orangered',
-            'DynamicLibrary': 'blue',
-            'Driver': 'magenta',
-            'StaticLibrary': 'deepskyblue',
-            'Application': 'limegreen',
+            # *.vcxproj
+            'dynamiclibrary': 'blue',
+            'driver': 'magenta',
+            'staticlibrary': 'deepskyblue',
+            'application': 'limegreen',
+            # *.csproj
+            'library' : 'cornflowerblue',
+            'module' : 'darkviolet',
+            'exe' : 'green',
+            'winexe' : 'greenyellow',
         })
-
-        config_types = project.get_configuration_types()
 
         color = project_colors_dict['DEFAULT']
 
-        if config_types is None:
+        output_types = project.get_output_types()
+        if output_types is None:
             return color
 
-        if len(config_types) > 1:
+        output_types = [type.lower() for type in output_types]
+
+        if len(output_types) > 1:
             color = project_colors_dict['MIXED']
         else:
             color = project_colors_dict.get(
-                config_types.pop(), project_colors_dict['DEFAULT'])
+                output_types.pop(), project_colors_dict['DEFAULT'])
 
         return color
 
@@ -629,7 +582,7 @@ class ProjectDependencyPrinter:
             new_subgraph.attr(label=label_text.replace('\\', '/'))
 
             for project in directory_node.items_in_directory:
-                node_color = ProjectDependencyPrinter.get_project_config_type_color(project)
+                node_color = ProjectDependencyPrinter.get_project_output_type_color(project)
                 new_subgraph.node('node' + str(project.get_number()),
                                   project.get_project_filename(),
                                   color=node_color)
@@ -647,13 +600,13 @@ class ProjectDependencyPrinter:
 
     def create_projects_diagram(self, gv_settings):
 
-        print('Collecting projects dependencies...')
-        dependencies_collector = DependenciesCollector(self.projects_settings.dependency_type)
+        logging.info('Collecting projects dependencies...')
+        dependencies_collector = DependenciesCollector(self.projects_settings.dependenies_info)
         existing_projects, unknown_projects = \
             dependencies_collector.collect_dependencies(
                 self.projects_settings.get_all_projects())
 
-        print('Printing projects...')
+        logging.info('Printing projects...')
 
         digraph_object = graphviz.Digraph(name=gv_settings.graph_name,
                                           comment=gv_settings.comment,
@@ -684,7 +637,7 @@ class ProjectDependencyPrinter:
                     continue
 
                 edge_comment = project_name + " -> "  + dependency_project_name
-                edge_color = ProjectDependencyPrinter.get_project_config_type_color(
+                edge_color = ProjectDependencyPrinter.get_project_output_type_color(
                     dependency_project)
                 if not dependency_project.is_project_exists():
                     edge_color = _global_unknown_edge_style['color']
@@ -706,7 +659,7 @@ class ProjectDependencyPrinter:
         else:
             digraph_object.save()
         #digraph_object.view()
-        print('Projects printed')
+        logging.info('Projects printed')
 
 
 class GraphVizSettings:
@@ -732,16 +685,16 @@ def is_utf_encoding(data, utf8_utf16_encoding):
 
 
 class ProjectsSettings:
-    def __init__(self, projects, solutions, dtype, config, ignore_std):
+    def __init__(self, projects, solutions, dependenies_info, config, ignore_std):
         self.projects = projects
         self.solutions = solutions
-        self.dependency_type = dtype
+        self.dependenies_info = dependenies_info
         self.config = config
         self.ignore_std = ignore_std
 
     @staticmethod
     def get_project_content_gen(sln_content):
-        begin = 'Project'
+        begin = 'Project('
         end = 'EndProject'
 
         section_begin = 0
@@ -789,7 +742,8 @@ class ProjectsSettings:
         for content in projects_contents:
             project_path = content.split(',')[1].strip(' "')
 
-            if project_path.endswith(MSBuildXmlProjectType.XPROJ.value):
+            # TODO: should we use 'proj' here?
+            if project_path.endswith('proj'):
                 if not os.path.isabs(project_path):
                     project_path = os.path.join(os.path.dirname(sln_filepath_abs), project_path)
                     projects_paths.append(project_path)
@@ -812,23 +766,38 @@ def parse_arguments():
     arg_parser = argparse.ArgumentParser(
         description='Print Visual Studio projects dependencies.')
 
+    projects_group = arg_parser.add_argument_group(
+        'Projects', 'Arguments for printing a project dependencies')
     graphviz_group = arg_parser.add_argument_group(
         'Graphviz', 'Arguments for the graphviz')
-    projects_group = arg_parser.add_argument_group(
-        'Projects', 'Arguments for a printing project dependencies')
 
-    projects_group.add_argument('--dtype',
-                                choices=[t.name for t in MSBuildXmlProjectType],
-                                required=True)
-    projects_group.add_argument('--proj', action='append')
-    projects_group.add_argument('--sln', action='append')
+    projects_group.add_argument('--proj',
+                                metavar='ProjectFilePath',
+                                action='append')
+    projects_group.add_argument('--sln',
+                                metavar='SolutionFilePath',
+                                action='append')
+    projects_group.add_argument('--dep-item',
+                                nargs='+',
+                                choices=[t.value for t in MSBuildItems],
+                                metavar=('Item1', 'Item2'),
+                                help='MSBuild xml item(s). '
+                                     'Possible items: %(choices)s')
+    projects_group.add_argument('--dep-masks',
+                                nargs='*',
+                                metavar='.file_extension',
+                                help='Dependency files extensions masks for the accounting. '
+                                'For example: ".targets", ".props", ".settings", etc')
     projects_group.add_argument('--config',
-                                help='ini config filepath to resolve variables of a projects')
-    projects_group.add_argument(
-        '--ignore-std-proj', dest='ignore_std', action='store_true',
-        help=r'Ignore standard VS projects like "$(VCTargetsPath)\Microsoft.Cpp.Default.props",'
-             r' "$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props"'
-             r' and "$(VCTargetsPath)\Microsoft.Cpp.targets"')
+                                help='ini-config file path to resolve variables of the projects')
+    std_proj_help = r'Ignore standard projects like'\
+                    r' "$(VCTargetsPath)\Microsoft.Cpp.Default.props",'\
+                    r' "$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props"'\
+                    r' and "$(VCTargetsPath)\Microsoft.Cpp.targets"'
+    projects_group.add_argument('--ignore-std-proj',
+                                dest='ignore_std',
+                                action='store_true',
+                                help=std_proj_help)
 
     graphviz_group.add_argument('--gname', default='Dependencies')
     graphviz_group.add_argument('--gcomment', default='Dependencies for projects')
@@ -839,6 +808,8 @@ def parse_arguments():
     graphviz_group.add_argument('--gdiagname', default='')
     graphviz_group.add_argument('--with-render', dest='need_render', action='store_true')
 
+    graphviz_group.add_argument('args', nargs=argparse.REMAINDER)
+
     args = arg_parser.parse_args()
 
     if not args.proj and not args.sln:
@@ -846,15 +817,18 @@ def parse_arguments():
         arg_parser.print_help()
         sys.exit(1)
 
+    dependency_info_list = []
+    for item in args.dep_item:
+        dependency_info_list.append(MSBuildItemDependencyInfo(item, args.dep_masks))
+
     proj_settings = ProjectsSettings(args.proj,
                                      args.sln,
-                                     MSBuildXmlProjectType[args.dtype],
+                                     dependency_info_list,
                                      args.config,
                                      args.ignore_std)
 
     if not args.gdiagname:
-        args.gdiagname = 'Projects dependencies type [{}]'.format(
-            MSBuildXmlProjectType[args.dtype].value)
+        args.gdiagname = 'Dependencies'
 
     gv_settings = GraphVizSettings(args.gname, args.gcomment, args.outfilename,
                                    args.outdir, args.outformat, args.engine,

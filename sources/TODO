@@ -1,12 +1,6 @@
 
 * Parse "*.sln" files correctly to find all dependencies
 
-* Generalize projects into groups by MsBuild elements "Import", "ProjectsReference" and so on
-  instead of only "proj", ".props", ".targets".
-  Use regex mask to choose projects type to build dependencies, for example
-  --dmask="*.props", --dmask="*.targets", --dmask="*.settings", etc
-  instead of "XPROJ", "PROPS", "TARGETS"
-
 * Find variables to resolve projects paths in the projects themselves and resolve the paths automatically without ini-config
  
 * Add possibility to print dependencies (projects nodes) without subdirectories (without clusters)
