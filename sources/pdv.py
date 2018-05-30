@@ -136,14 +136,6 @@ class MSBuildXmlProject:
             self._dom = minidom.parse(self.file_path)
         return self._dom
 
-    @staticmethod
-    def _get_proj_ref_node_tag_value(prject_node, tag):
-        for node in prject_node.childNodes:
-            if (node.nodeType == node.ELEMENT_NODE and
-                    node.tagName == tag):
-                return node.firstChild.nodeValue
-        return None
-
     def is_project_exists(self):
         return os.path.isfile(self.file_path)
 
@@ -618,7 +610,7 @@ class ProjectDependencyPrinter:
         ProjectDependencyPrinter.set_default_graph_settings(digraph_object)
         ProjectDependencyPrinter.set_default_graph_nodes_settings(digraph_object)
         ProjectDependencyPrinter.set_default_graph_edges_settings(digraph_object)
-        digraph_object.attr(label=gv_settings.diagram_name)
+        digraph_object.attr(label=gv_settings.diagram_label)
 
         directories_tree = build_directory_tree(existing_projects)
         #print_node(directories_tree)
@@ -664,14 +656,14 @@ class ProjectDependencyPrinter:
 
 class GraphVizSettings:
     def __init__(self, graph_name, comment, filename, directory,
-                 output_format, engine, diagram_name, need_render):
+                 output_format, engine, diagram_label, need_render):
         self.graph_name = graph_name
         self.comment = comment
         self.filename = filename
         self.directory = directory
         self.output_format = output_format
         self.engine = engine
-        self.diagram_name = diagram_name
+        self.diagram_label = diagram_label
         self.need_render = need_render
 
 
@@ -799,16 +791,14 @@ def parse_arguments():
                                 action='store_true',
                                 help=std_proj_help)
 
-    graphviz_group.add_argument('--gname', default='Dependencies')
-    graphviz_group.add_argument('--gcomment', default='Dependencies for projects')
+    graphviz_group.add_argument('--name', default='Dependencies')
+    graphviz_group.add_argument('--comment', default='Dependencies for projects')
     graphviz_group.add_argument('--outfilename', default='project_dependencies.gv')
     graphviz_group.add_argument('--outdir', default='.out')
     graphviz_group.add_argument('--outformat', default='svg')
     graphviz_group.add_argument('--engine', default='dot')
-    graphviz_group.add_argument('--gdiagname', default='')
+    graphviz_group.add_argument('--label', default='Dependencies')
     graphviz_group.add_argument('--with-render', dest='need_render', action='store_true')
-
-    graphviz_group.add_argument('args', nargs=argparse.REMAINDER)
 
     args = arg_parser.parse_args()
 
@@ -827,12 +817,9 @@ def parse_arguments():
                                      args.config,
                                      args.ignore_std)
 
-    if not args.gdiagname:
-        args.gdiagname = 'Dependencies'
-
-    gv_settings = GraphVizSettings(args.gname, args.gcomment, args.outfilename,
+    gv_settings = GraphVizSettings(args.name, args.comment, args.outfilename,
                                    args.outdir, args.outformat, args.engine,
-                                   args.gdiagname, args.need_render)
+                                   args.label, args.need_render)
 
     return proj_settings, gv_settings
 

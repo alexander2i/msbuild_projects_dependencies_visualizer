@@ -5,5 +5,4 @@
  
 * Add possibility to print dependencies (projects nodes) without subdirectories (without clusters)
 
-* Pass not parsed command line options into graphviz to customize rendering
-
+* Rework figuring out solution encoding
