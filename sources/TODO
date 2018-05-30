@@ -5,4 +5,3 @@
  
 * Add possibility to print dependencies (projects nodes) without subdirectories (without clusters)
 
-* Rework figuring out solution encoding

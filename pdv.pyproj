@@ -19,7 +19,7 @@
     <IsWindowsApplication>False</IsWindowsApplication>
     <InterpreterArguments>
     </InterpreterArguments>
-    <CommandLineArguments>--sln ../others/PTVS/Python/PythonTools.sln --with-render --dep-item Import --dep-masks .props .targets proj .settings --config=sources\projects_config.ini</CommandLineArguments>
+    <CommandLineArguments>--sln ../others/PTVS/Python/PythonTools.sln --with-render --dep-item Import --dep-masks .props .targets proj .settings --config=.out\projects_config.ini</CommandLineArguments>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />

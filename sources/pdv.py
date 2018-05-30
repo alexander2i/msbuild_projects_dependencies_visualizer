@@ -667,15 +667,6 @@ class GraphVizSettings:
         self.need_render = need_render
 
 
-def is_utf_encoding(data, utf8_utf16_encoding):
-    try:
-        data.decode(utf8_utf16_encoding)
-    except UnicodeDecodeError:
-        return False
-    else:
-        return True
-
-
 class ProjectsSettings:
     def __init__(self, projects, solutions, dependenies_info, config, ignore_std):
         self.projects = projects
@@ -706,28 +697,20 @@ class ProjectsSettings:
                 break
 
     @staticmethod
-    def determine_sln_encoding(sln_filepath):
-        '''usually *.sln files have encoding "utf-8" or "utf-16"'''
-        encoding = None
-        with open(sln_filepath, 'rb') as sln_file:
-            # try read only BOM
-            data = sln_file.read(4)
-            if is_utf_encoding(data, 'utf-8'):
-                encoding = 'utf-8'
-            elif is_utf_encoding(data, 'utf-16'):
-                encoding = 'utf-16'
-            else:
-                pass
-
-        return encoding
-
-    @staticmethod
     def parse_solution(sln_filepath):
         projects_paths = []
         sln_filepath_abs = os.path.abspath(sln_filepath)
-        guess_encoding = ProjectsSettings.determine_sln_encoding(sln_filepath_abs)
-        with open(sln_filepath_abs, 'rt', encoding=guess_encoding) as sln_file:
-            sln_content = sln_file.read()
+
+        for guess_encoding in ('utf-8', 'utf-16', 'cp1252', None):
+            try:
+                logging.debug('Try read the solution using encoding: %s', guess_encoding)
+                with open(sln_filepath_abs, 'rt', encoding=guess_encoding) as sln_file:
+                    sln_content = sln_file.read()
+            except UnicodeError:
+                logging.debug('Failed to read the solution using encoding: %s', guess_encoding)
+                continue
+            else:
+                break
 
         projects_contents = list(ProjectsSettings.get_project_content_gen(sln_content))
 
