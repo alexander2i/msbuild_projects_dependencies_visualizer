@@ -3,5 +3,3 @@
 
 * Find variables to resolve projects paths in the projects themselves and resolve the paths automatically without ini-config
  
-* Add possibility to print dependencies (projects nodes) without subdirectories (without clusters)
-

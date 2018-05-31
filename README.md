@@ -1,5 +1,5 @@
 # msbuild_projects_dependencies_visualizer
-This project is a simple python script which allows to visualize dependencies for a MSBuild projects.
+This project is a simple python script which allows to visualize dependencies for a MSBuild projects and solutions.
 
 The result of the script execution is a simple *.gv file. Which can be rendered with the [graphviz](https://www.graphviz.org/) utilities like dot.exe. Using command line parameter `--with-render` the script can automatically call specified (default: dot.exe) graphviz utility after generation *.gv file.
 

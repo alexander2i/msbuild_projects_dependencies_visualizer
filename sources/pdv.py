@@ -51,9 +51,9 @@ class MSBuildItems(enum.Enum):
     ITEM_IMPORT = 'Import'
 
     def get_attribute(self):
-        return { MSBuildItems.ITEM_PROJECT_REF: 'Include',
-                 MSBuildItems.ITEM_PROJECT_REF2: 'Include',
-                 MSBuildItems.ITEM_IMPORT: 'Project'
+        return {MSBuildItems.ITEM_PROJECT_REF: 'Include',
+                MSBuildItems.ITEM_PROJECT_REF2: 'Include',
+                MSBuildItems.ITEM_IMPORT: 'Project'
                }[self]
 
     def get_dependencies(self, project_dom, masks):
@@ -122,8 +122,9 @@ class MSBuildXmlProject:
 
     def _add_project_dependency(self, project):
         if project in self.proj_dependencies:
-            logging.info('Project [{}] already present as dependency for [{}]'.format(
-                project.get_project_filepath(), self.get_project_filepath()))
+            logging.info('Project [%s] already present as dependency for [%s]',
+                         project.get_project_filepath(),
+                         self.get_project_filepath())
             return
 
         self.proj_dependencies.add(project)
@@ -131,7 +132,7 @@ class MSBuildXmlProject:
     def _get_project_dom(self):
         if self._dom is None:
             if not self.is_project_exists():
-                logging.warning("Failed to parse xml. File [{}] not found.".format(self.file_path))
+                logging.warning("Failed to parse xml. File [%s] not found.", self.file_path)
                 return None
             self._dom = minidom.parse(self.file_path)
         return self._dom
@@ -300,7 +301,7 @@ class DirectoryPathsBranch:
             last_node_obj = pathlib.PurePath(self.nodes[-1].get_directory_name())
 
             if last_node_obj == directory_path_obj:
-                logging.info("Path [{}] already added to the branch".format(last_node_obj))
+                logging.info("Path [%s] already added to the branch", str(last_node_obj))
                 return
 
             if last_node_obj not in directory_path_obj.parents:
@@ -544,11 +545,20 @@ class ProjectDependencyPrinter:
         dot_graph.attr('edge', **default_edge_style)
 
     @staticmethod
-    def make_cluster_name_by_path(project_path):
-        return 'cluster_' + project_path.replace(os.path.sep, '_').replace(':', '_')
+    def make_subgraph_name_by_path(project_path, hide_paths):
+        prefix = 'cluster_'
+
+        if hide_paths:
+            prefix = ''
+
+        name = project_path
+        for character in (os.path.sep, ':', '.'):
+            name = name.replace(character, '_')
+
+        return prefix + name
 
     @staticmethod
-    def print_directories_tree(directory_node, parent_dot_object, common_path):
+    def print_directories_tree(directory_node, parent_dot_object, common_path, hide_paths):
         if not directory_node:
             return
 
@@ -561,8 +571,8 @@ class ProjectDependencyPrinter:
             # directory_node should be the root
             common_path = current_path
 
-        subgraph_name = ProjectDependencyPrinter.make_cluster_name_by_path(
-            current_path)
+        subgraph_name = ProjectDependencyPrinter.make_subgraph_name_by_path(
+            current_path, hide_paths)
         with parent_dot_object.subgraph(name=subgraph_name) as new_subgraph:
             # print full path only for root subgraph
             # add last separator for all
@@ -582,7 +592,8 @@ class ProjectDependencyPrinter:
             for child in directory_node.childrens:
                 ProjectDependencyPrinter.print_directories_tree(child,
                                                                 new_subgraph,
-                                                                common_path)
+                                                                common_path,
+                                                                hide_paths)
 
     def print_projects(self, projects, parent_graph, **kwarg):
         for project in projects:
@@ -640,7 +651,7 @@ class ProjectDependencyPrinter:
                                     color=edge_color)
 
         # print nodes for existing projects
-        self.print_directories_tree(directories_tree, digraph_object, None)
+        self.print_directories_tree(directories_tree, digraph_object, None, gv_settings.hide_paths)
 
         # print nodes for unknown projects
         self.print_projects(unknown_projects, digraph_object,
@@ -656,7 +667,8 @@ class ProjectDependencyPrinter:
 
 class GraphVizSettings:
     def __init__(self, graph_name, comment, filename, directory,
-                 output_format, engine, diagram_label, need_render):
+                 output_format, engine, diagram_label, need_render,
+                 hide_paths):
         self.graph_name = graph_name
         self.comment = comment
         self.filename = filename
@@ -665,6 +677,7 @@ class GraphVizSettings:
         self.engine = engine
         self.diagram_label = diagram_label
         self.need_render = need_render
+        self.hide_paths = hide_paths
 
 
 class ProjectsSettings:
@@ -782,6 +795,7 @@ def parse_arguments():
     graphviz_group.add_argument('--engine', default='dot')
     graphviz_group.add_argument('--label', default='Dependencies')
     graphviz_group.add_argument('--with-render', dest='need_render', action='store_true')
+    graphviz_group.add_argument('--without-paths', dest='hide_paths', action='store_true')
 
     args = arg_parser.parse_args()
 
@@ -802,7 +816,7 @@ def parse_arguments():
 
     gv_settings = GraphVizSettings(args.name, args.comment, args.outfilename,
                                    args.outdir, args.outformat, args.engine,
-                                   args.label, args.need_render)
+                                   args.label, args.need_render, args.hide_paths)
 
     return proj_settings, gv_settings
 
