@@ -587,7 +587,8 @@ class ProjectDependencyPrinter:
                 node_color = ProjectDependencyPrinter.get_project_output_type_color(project)
                 new_subgraph.node('node' + str(project.get_number()),
                                   project.get_project_filename(),
-                                  color=node_color)
+                                  color=node_color,
+                                  tooltip=project.get_project_filepath())
 
             for child in directory_node.childrens:
                 ProjectDependencyPrinter.print_directories_tree(child,
@@ -639,7 +640,7 @@ class ProjectDependencyPrinter:
                     is_standard_project(dependency_project_name):
                     continue
 
-                edge_comment = project_name + " -> "  + dependency_project_name
+                edge_tooltip = project_name + " -> "  + dependency_project_name
                 edge_color = ProjectDependencyPrinter.get_project_output_type_color(
                     dependency_project)
                 if not dependency_project.is_project_exists():
@@ -647,7 +648,7 @@ class ProjectDependencyPrinter:
 
                 digraph_object.edge('node' + str(project.get_number()),
                                     'node' + str(dependency_project.get_number()),
-                                    comment=edge_comment,
+                                    tooltip=edge_tooltip,
                                     color=edge_color)
 
         # print nodes for existing projects
