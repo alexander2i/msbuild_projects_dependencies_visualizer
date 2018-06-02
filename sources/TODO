@@ -1,8 +1,8 @@
 
-* Parse "*.sln" files correctly to find all dependencies
-
 * Find variables to resolve projects paths in the projects themselves and resolve the paths automatically without ini-config
  
 * Improve script parameters documentation (--help)
 
 * Add scripts to bypass directories tree
+
+* Add more logs

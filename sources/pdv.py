@@ -9,6 +9,7 @@ import argparse
 import configparser
 import re
 import logging
+import time
 
 import graphviz
 
@@ -690,25 +691,10 @@ class ProjectsSettings:
         self.ignore_std = ignore_std
 
     @staticmethod
-    def get_project_content_gen(sln_content):
-        begin = 'Project('
-        end = 'EndProject'
+    def get_projects_contents(sln_content):
+        pattern = re.compile(r'\bProject\(.+?\bEndProject\b', re.DOTALL)
 
-        section_begin = 0
-        section_end = 0
-        new_search_pos = 0
-
-        while True:
-            try:
-                section_begin = sln_content.index(begin, new_search_pos) + len(begin)
-                section_end = sln_content.index(end, section_begin)
-
-                project_content = sln_content[section_begin:section_end]
-                yield project_content
-
-                new_search_pos = section_end + len(end)
-            except ValueError:
-                break
+        return pattern.findall(sln_content)
 
     @staticmethod
     def parse_solution(sln_filepath):
@@ -726,7 +712,7 @@ class ProjectsSettings:
             else:
                 break
 
-        projects_contents = list(ProjectsSettings.get_project_content_gen(sln_content))
+        projects_contents = ProjectsSettings.get_projects_contents(sln_content)
 
         for content in projects_contents:
             project_path = content.split(',')[1].strip(' "')
@@ -734,7 +720,8 @@ class ProjectsSettings:
             # TODO: should we use 'proj' here?
             if project_path.endswith('proj'):
                 if not os.path.isabs(project_path):
-                    project_path = os.path.join(os.path.dirname(sln_filepath_abs), project_path)
+                    project_path = os.path.normpath(
+                        os.path.join(os.path.dirname(sln_filepath_abs), project_path))
                     projects_paths.append(project_path)
 
         return projects_paths
@@ -790,11 +777,11 @@ def parse_arguments():
 
     graphviz_group.add_argument('--name', default='Dependencies')
     graphviz_group.add_argument('--comment', default='Dependencies for projects')
+    graphviz_group.add_argument('--label', default='Dependencies')
     graphviz_group.add_argument('--outfilename', default='project_dependencies.gv')
     graphviz_group.add_argument('--outdir', default='.out')
     graphviz_group.add_argument('--outformat', default='svg')
     graphviz_group.add_argument('--engine', default='dot')
-    graphviz_group.add_argument('--label', default='Dependencies')
     graphviz_group.add_argument('--with-render', dest='need_render', action='store_true')
     graphviz_group.add_argument('--without-paths', dest='hide_paths', action='store_true')
 
@@ -839,4 +826,10 @@ def main():
 
 
 if __name__ == '__main__':
+    logging_format = '%(asctime)s %(levelname)s: %(message)s'
+    logging.basicConfig(format=logging_format, level=logging.DEBUG)
+
+    start_time = time.perf_counter()
     main()
+    end_time = time.perf_counter()
+    logging.info('Total time spent: %0.7f secs', end_time - start_time)
