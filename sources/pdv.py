@@ -706,7 +706,8 @@ class ProjectsSettings:
 
         for guess_encoding in ('utf-8', 'utf-16', 'cp1252', None):
             try:
-                logging.debug('Try read the solution using encoding: %s', guess_encoding)
+                logging.debug('Try to read the solution [%s] using encoding: [%s]',
+                              sln_filepath_abs, guess_encoding)
                 with open(sln_filepath_abs, 'rt', encoding=guess_encoding) as sln_file:
                     sln_content = sln_file.read()
             except UnicodeError:
@@ -741,7 +742,7 @@ class ProjectsSettings:
         return all_projects
 
 
-def parse_arguments():
+def parse_arguments(args_list):
     arg_parser = argparse.ArgumentParser(
         description='Print Visual Studio projects dependencies.')
 
@@ -802,7 +803,7 @@ def parse_arguments():
     graphviz_group.add_argument('--without-paths', dest='hide_paths', action='store_true',
                                 help='Do not add projects path to the image')
 
-    args = arg_parser.parse_args()
+    args = arg_parser.parse_args(args=args_list)
 
     if not args.proj and not args.sln:
         print('You should specify at least --proj or --sln parameter')
@@ -832,8 +833,8 @@ def parse_config(config_filepath):
     _global_projects_config.read(config_filepath)
 
 
-def print_dependencies():
-    proj_settings, gv_settings = parse_arguments()
+def print_dependencies(args_list=None):
+    proj_settings, gv_settings = parse_arguments(args_list)
 
     if proj_settings.config:
         parse_config(proj_settings.config)
@@ -842,7 +843,7 @@ def print_dependencies():
     pdp.create_projects_diagram(gv_settings)
 
 
-if __name__ == '__main__':
+def main():
     logging_format = '%(asctime)s %(levelname)s: %(message)s'
     logging.basicConfig(format=logging_format, level=logging.DEBUG)
 
@@ -850,3 +851,7 @@ if __name__ == '__main__':
     print_dependencies()
     end_time = time.perf_counter()
     logging.info('Total time spent: %0.7f secs', end_time - start_time)
+
+
+if __name__ == '__main__':
+    main()
