@@ -521,6 +521,9 @@ class ProjectDependencyPrinter:
             'winexe' : 'greenyellow',
         })
 
+        # more colors here:
+        # https://www.graphviz.org/doc/info/colors.html
+
         color = project_colors_dict['DEFAULT']
 
         output_types = project.get_output_types()
@@ -763,9 +766,14 @@ def parse_arguments():
                                 nargs='*',
                                 metavar='.file_extension',
                                 help='Dependency files extensions masks for the accounting. '
-                                'For example: ".targets", ".props", ".settings", etc')
+                                'For example: ".targets" ".props" ".settings", etc')
+
+    config_help = r'ini-config file path. '\
+                  r'This file is used to resolve variables of the projects. '\
+                  r'Variables should be defined at [DEFAULT] section. '\
+                  r'For example: $(SolutionDir)=C:\SolutionDir\ '
     projects_group.add_argument('--config',
-                                help='ini-config file path to resolve variables of the projects')
+                                help=config_help)
     std_proj_help = r'Ignore standard projects like'\
                     r' "$(VCTargetsPath)\Microsoft.Cpp.Default.props",'\
                     r' "$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props"'\
@@ -775,15 +783,24 @@ def parse_arguments():
                                 action='store_true',
                                 help=std_proj_help)
 
-    graphviz_group.add_argument('--name', default='Dependencies')
-    graphviz_group.add_argument('--comment', default='Dependencies for projects')
-    graphviz_group.add_argument('--label', default='Dependencies')
-    graphviz_group.add_argument('--outfilename', default='project_dependencies.gv')
-    graphviz_group.add_argument('--outdir', default='.out')
-    graphviz_group.add_argument('--outformat', default='svg')
-    graphviz_group.add_argument('--engine', default='dot')
-    graphviz_group.add_argument('--with-render', dest='need_render', action='store_true')
-    graphviz_group.add_argument('--without-paths', dest='hide_paths', action='store_true')
+    graphviz_group.add_argument('--name', default='Dependencies',
+                                help='Graph name used in the source code.')
+    graphviz_group.add_argument('--comment', default='Dependencies for projects',
+                                help='Comment added to the first line of the source.')
+    graphviz_group.add_argument('--label', default='Dependencies',
+                                help='Label of the graph in the image')
+    graphviz_group.add_argument('--outfilename', default='project_dependencies.gv',
+                                help="Filename for saving the source")
+    graphviz_group.add_argument('--outdir', default='.out',
+                                help="(Sub)directory for source saving and rendering")
+    graphviz_group.add_argument('--outformat', default='svg',
+                                help="Rendering output format ('pdf', 'png', ...)")
+    graphviz_group.add_argument('--engine', default='dot',
+                                help="Layout command used ('dot', 'neato', ...)")
+    graphviz_group.add_argument('--with-render', dest='need_render', action='store_true',
+                                help="Render the source *.gv file with the engine to an image")
+    graphviz_group.add_argument('--without-paths', dest='hide_paths', action='store_true',
+                                help='Do not add projects path to the image')
 
     args = arg_parser.parse_args()
 
@@ -815,7 +832,7 @@ def parse_config(config_filepath):
     _global_projects_config.read(config_filepath)
 
 
-def main():
+def print_dependencies():
     proj_settings, gv_settings = parse_arguments()
 
     if proj_settings.config:
@@ -830,6 +847,6 @@ if __name__ == '__main__':
     logging.basicConfig(format=logging_format, level=logging.DEBUG)
 
     start_time = time.perf_counter()
-    main()
+    print_dependencies()
     end_time = time.perf_counter()
     logging.info('Total time spent: %0.7f secs', end_time - start_time)
