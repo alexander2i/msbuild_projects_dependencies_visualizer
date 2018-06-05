@@ -135,7 +135,13 @@ class MSBuildXmlProject:
             if not self.is_project_exists():
                 logging.warning("Failed to parse xml. File [%s] not found.", self.file_path)
                 return None
-            self._dom = minidom.parse(self.file_path)
+
+            try:
+                self._dom = minidom.parse(self.file_path)
+            except:
+                logging.error('Failed to parse project [%s].', self.file_path)
+                return None
+
         return self._dom
 
     def is_project_exists(self):
