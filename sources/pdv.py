@@ -161,12 +161,10 @@ class MSBuildXmlProject:
         # For example $(SolutionDir), $(VCTargetsPath) etc.
         resolved_path = try_resolve_variables(project_path)
 
-        # some variables may not have been resolved
         if os.path.isfile(resolved_path):
-            # assume path was resolved as absolute
-            # TODO: if this assumption is wrong then fix it
-            return os.path.normpath(resolved_path)
+            return os.path.abspath(resolved_path)
 
+        # some variables may not have been resolved
         return project_path
 
     def get_project_filepath(self):
@@ -739,7 +737,7 @@ class ProjectsSettings:
     def get_all_projects(self):
         all_projects = []
         if self.projects:
-            all_projects += self.projects
+            all_projects += [os.path.abspath(project) for project in self.projects]
         if self.solutions:
             for sln in self.solutions:
                 sln_projects = ProjectsSettings.parse_solution(sln)
