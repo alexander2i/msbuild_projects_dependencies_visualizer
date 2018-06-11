@@ -7,7 +7,7 @@ set "PYTHONEXE=G:\Installed\Python36\python.exe"
 set "GRAPHVIZ_BIN_PATH=G:\Installed\Graphviz2.38\bin"
 set "PATH=%PATH%;%GRAPHVIZ_BIN_PATH%"
 
-call %PYTHONEXE% ../../sources/pdv.py ^
+call %PYTHONEXE% ../../src/pdv.py ^
     --sln "../../../others/corefx/src/System.Data.Common/System.Data.Common.sln" ^
     --dep-item ProjectReference ^
     --with-render ^
@@ -15,7 +15,7 @@ call %PYTHONEXE% ../../sources/pdv.py ^
     --outdir generated ^
     --config projects_config.ini
 
-call %PYTHONEXE% ../../sources/pdv.py ^
+call %PYTHONEXE% ../../src/pdv.py ^
     --proj "../../../others/corefx/src/System.Net.WebSockets/ref/System.Net.WebSockets.csproj" ^
     --dep-item ProjectReference ^
     --with-render ^

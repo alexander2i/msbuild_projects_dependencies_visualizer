@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{4797ab05-7982-42cb-b025-9a63a257020f}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>sources\pdv.py</StartupFile>
+    <StartupFile>src\pdv.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -27,10 +27,10 @@
     <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="sources\pdv.py" />
+    <Compile Include="src\pdv.py" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="sources\" />
+    <Folder Include="src\" />
   </ItemGroup>
   <ItemGroup>
     <InterpreterReference Include="Global|PythonCore|3.6" />
