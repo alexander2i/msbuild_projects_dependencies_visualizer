@@ -610,6 +610,17 @@ class ProjectDependencyPrinter:
                               project.get_project_filepath().replace('\\', '/'),
                               kwarg)
 
+    def _should_ignore_project_deps(self, project):
+        should_ignore = False
+
+        if self.projects_settings.ignore_deps:
+            for ignore in self.projects_settings.ignore_deps:
+                if project.get_project_filepath().lower().endswith(ignore.lower()):
+                    should_ignore = True
+                    break
+
+        return should_ignore
+
     def create_projects_diagram(self, gv_settings):
 
         logging.info('Collecting projects dependencies...')
@@ -641,9 +652,18 @@ class ProjectDependencyPrinter:
 
         # print edges
         for project in existing_projects:
+            if self._should_ignore_project_deps(project):
+                # do not print dependencies for the projects to be ignored
+                continue
+
             project_name = project.get_project_filename()
             for dependency_project in project.get_project_dependencies():
+                if self._should_ignore_project_deps(dependency_project):
+                    # do not print projects to be ignored
+                    continue
+
                 dependency_project_name = dependency_project.get_project_filename()
+
                 if self.projects_settings.ignore_std and \
                     is_standard_project(dependency_project_name):
                     continue
@@ -690,12 +710,13 @@ class GraphVizSettings:
 
 
 class ProjectsSettings:
-    def __init__(self, projects, solutions, dependenies_info, config, ignore_std):
+    def __init__(self, projects, solutions, dependenies_info, config, ignore_std, ignore_deps):
         self.projects = projects
         self.solutions = solutions
         self.dependenies_info = dependenies_info
         self.config = config
         self.ignore_std = ignore_std
+        self.ignore_deps = ignore_deps
 
     @staticmethod
     def get_projects_contents(sln_content):
@@ -773,6 +794,11 @@ def parse_arguments(args_list):
                                 help='Dependency files extensions masks for the accounting. '
                                 'For example: ".targets" ".props" ".settings", etc')
 
+    projects_group.add_argument('--ignore-deps',
+                                metavar='ProjectFileName',
+                                action='append',
+                                help='Do not print dependenices for/from the project on the image')
+
     config_help = r'ini-config file path. '\
                   r'This file is used to resolve variables of the projects. '\
                   r'Variables should be defined at [DEFAULT] section. '\
@@ -822,7 +848,8 @@ def parse_arguments(args_list):
                                      args.sln,
                                      dependency_info_list,
                                      args.config,
-                                     args.ignore_std)
+                                     args.ignore_std,
+                                     args.ignore_deps)
 
     gv_settings = GraphVizSettings(args.name, args.comment, args.outfilename,
                                    args.outdir, args.outformat, args.engine,
