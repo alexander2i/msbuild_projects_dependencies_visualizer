@@ -1,0 +1,341 @@
+// Dependencies for projects
+digraph Dependencies {
+	color=grey fontcolor=darkgreen fontsize=16 labelloc=t rankdir=LR style="dotted, bold"
+	node [color=brown fillcolor=beige penwidth=2 shape=box style="filled, rounded"]
+	edge [color=brown]
+	label=Dependencies
+	node3 -> node20 [color=deepskyblue tooltip="unflatten.vcxproj -> getopt.vcxproj"]
+	node3 -> node27 [color=deepskyblue tooltip="unflatten.vcxproj -> ingraphs.vcxproj"]
+	node3 -> node38 [color=blue tooltip="unflatten.vcxproj -> cdt.vcxproj"]
+	node3 -> node51 [color=blue tooltip="unflatten.vcxproj -> cgraph.vcxproj"]
+	node6 -> node20 [color=deepskyblue tooltip="gc.vcxproj -> getopt.vcxproj"]
+	node6 -> node27 [color=deepskyblue tooltip="gc.vcxproj -> ingraphs.vcxproj"]
+	node6 -> node38 [color=blue tooltip="gc.vcxproj -> cdt.vcxproj"]
+	node6 -> node51 [color=blue tooltip="gc.vcxproj -> cgraph.vcxproj"]
+	node7 -> node20 [color=deepskyblue tooltip="gvcolor.vcxproj -> getopt.vcxproj"]
+	node7 -> node27 [color=deepskyblue tooltip="gvcolor.vcxproj -> ingraphs.vcxproj"]
+	node7 -> node38 [color=blue tooltip="gvcolor.vcxproj -> cdt.vcxproj"]
+	node7 -> node51 [color=blue tooltip="gvcolor.vcxproj -> cgraph.vcxproj"]
+	node9 -> node20 [color=deepskyblue tooltip="nop.vcxproj -> getopt.vcxproj"]
+	node9 -> node27 [color=deepskyblue tooltip="nop.vcxproj -> ingraphs.vcxproj"]
+	node9 -> node38 [color=blue tooltip="nop.vcxproj -> cdt.vcxproj"]
+	node9 -> node51 [color=blue tooltip="nop.vcxproj -> cgraph.vcxproj"]
+	node10 -> node2 [color=deepskyblue tooltip="gvplugin_dot_layout.vcxproj -> pack.vcxproj"]
+	node10 -> node32 [color=deepskyblue tooltip="gvplugin_dot_layout.vcxproj -> label.vcxproj"]
+	node10 -> node5 [color=deepskyblue tooltip="gvplugin_dot_layout.vcxproj -> common.vcxproj"]
+	node10 -> node22 [color=blue tooltip="gvplugin_dot_layout.vcxproj -> xdot.vcxproj"]
+	node10 -> node23 [color=blue tooltip="gvplugin_dot_layout.vcxproj -> gvc.vcxproj"]
+	node10 -> node49 [color=deepskyblue tooltip="gvplugin_dot_layout.vcxproj -> dotgen.vcxproj"]
+	node10 -> node38 [color=blue tooltip="gvplugin_dot_layout.vcxproj -> cdt.vcxproj"]
+	node10 -> node41 [color=deepskyblue tooltip="gvplugin_dot_layout.vcxproj -> ortho.vcxproj"]
+	node10 -> node51 [color=blue tooltip="gvplugin_dot_layout.vcxproj -> cgraph.vcxproj"]
+	node10 -> node14 [color=blue tooltip="gvplugin_dot_layout.vcxproj -> pathplan.vcxproj"]
+	node11 -> node2 [color=deepskyblue tooltip="mm2gv.vcxproj -> pack.vcxproj"]
+	node11 -> node19 [color=deepskyblue tooltip="mm2gv.vcxproj -> sparse.vcxproj"]
+	node11 -> node20 [color=deepskyblue tooltip="mm2gv.vcxproj -> getopt.vcxproj"]
+	node11 -> node32 [color=deepskyblue tooltip="mm2gv.vcxproj -> label.vcxproj"]
+	node11 -> node5 [color=deepskyblue tooltip="mm2gv.vcxproj -> common.vcxproj"]
+	node11 -> node22 [color=blue tooltip="mm2gv.vcxproj -> xdot.vcxproj"]
+	node11 -> node23 [color=blue tooltip="mm2gv.vcxproj -> gvc.vcxproj"]
+	node11 -> node38 [color=blue tooltip="mm2gv.vcxproj -> cdt.vcxproj"]
+	node11 -> node41 [color=deepskyblue tooltip="mm2gv.vcxproj -> ortho.vcxproj"]
+	node11 -> node51 [color=blue tooltip="mm2gv.vcxproj -> cgraph.vcxproj"]
+	node11 -> node14 [color=blue tooltip="mm2gv.vcxproj -> pathplan.vcxproj"]
+	node13 -> node2 [color=deepskyblue tooltip="gvplugin_pango.vcxproj -> pack.vcxproj"]
+	node13 -> node32 [color=deepskyblue tooltip="gvplugin_pango.vcxproj -> label.vcxproj"]
+	node13 -> node5 [color=deepskyblue tooltip="gvplugin_pango.vcxproj -> common.vcxproj"]
+	node13 -> node22 [color=blue tooltip="gvplugin_pango.vcxproj -> xdot.vcxproj"]
+	node13 -> node23 [color=blue tooltip="gvplugin_pango.vcxproj -> gvc.vcxproj"]
+	node13 -> node38 [color=blue tooltip="gvplugin_pango.vcxproj -> cdt.vcxproj"]
+	node13 -> node41 [color=deepskyblue tooltip="gvplugin_pango.vcxproj -> ortho.vcxproj"]
+	node13 -> node51 [color=blue tooltip="gvplugin_pango.vcxproj -> cgraph.vcxproj"]
+	node13 -> node14 [color=blue tooltip="gvplugin_pango.vcxproj -> pathplan.vcxproj"]
+	node15 -> node20 [color=deepskyblue tooltip="graphml2gv.vcxproj -> getopt.vcxproj"]
+	node15 -> node27 [color=deepskyblue tooltip="graphml2gv.vcxproj -> ingraphs.vcxproj"]
+	node15 -> node38 [color=blue tooltip="graphml2gv.vcxproj -> cdt.vcxproj"]
+	node15 -> node51 [color=blue tooltip="graphml2gv.vcxproj -> cgraph.vcxproj"]
+	node16 -> node20 [color=deepskyblue tooltip="acyclic.vcxproj -> getopt.vcxproj"]
+	node16 -> node27 [color=deepskyblue tooltip="acyclic.vcxproj -> ingraphs.vcxproj"]
+	node16 -> node38 [color=blue tooltip="acyclic.vcxproj -> cdt.vcxproj"]
+	node16 -> node51 [color=blue tooltip="acyclic.vcxproj -> cgraph.vcxproj"]
+	node17 -> node51 [color=blue tooltip="gvgen.vcxproj -> cgraph.vcxproj"]
+	node17 -> node38 [color=blue tooltip="gvgen.vcxproj -> cdt.vcxproj"]
+	node17 -> node20 [color=deepskyblue tooltip="gvgen.vcxproj -> getopt.vcxproj"]
+	node18 -> node20 [color=deepskyblue tooltip="sccmap.vcxproj -> getopt.vcxproj"]
+	node18 -> node27 [color=deepskyblue tooltip="sccmap.vcxproj -> ingraphs.vcxproj"]
+	node18 -> node38 [color=blue tooltip="sccmap.vcxproj -> cdt.vcxproj"]
+	node18 -> node51 [color=blue tooltip="sccmap.vcxproj -> cgraph.vcxproj"]
+	node23 -> node2 [color=deepskyblue tooltip="gvc.vcxproj -> pack.vcxproj"]
+	node23 -> node32 [color=deepskyblue tooltip="gvc.vcxproj -> label.vcxproj"]
+	node23 -> node5 [color=deepskyblue tooltip="gvc.vcxproj -> common.vcxproj"]
+	node23 -> node22 [color=blue tooltip="gvc.vcxproj -> xdot.vcxproj"]
+	node23 -> node38 [color=blue tooltip="gvc.vcxproj -> cdt.vcxproj"]
+	node23 -> node41 [color=deepskyblue tooltip="gvc.vcxproj -> ortho.vcxproj"]
+	node23 -> node51 [color=blue tooltip="gvc.vcxproj -> cgraph.vcxproj"]
+	node23 -> node14 [color=blue tooltip="gvc.vcxproj -> pathplan.vcxproj"]
+	node24 -> node20 [color=deepskyblue tooltip="dijkstra.vcxproj -> getopt.vcxproj"]
+	node24 -> node27 [color=deepskyblue tooltip="dijkstra.vcxproj -> ingraphs.vcxproj"]
+	node24 -> node38 [color=blue tooltip="dijkstra.vcxproj -> cdt.vcxproj"]
+	node24 -> node51 [color=blue tooltip="dijkstra.vcxproj -> cgraph.vcxproj"]
+	node28 -> node20 [color=deepskyblue tooltip="gml2gv.vcxproj -> getopt.vcxproj"]
+	node28 -> node27 [color=deepskyblue tooltip="gml2gv.vcxproj -> ingraphs.vcxproj"]
+	node28 -> node38 [color=blue tooltip="gml2gv.vcxproj -> cdt.vcxproj"]
+	node28 -> node51 [color=blue tooltip="gml2gv.vcxproj -> cgraph.vcxproj"]
+	node29 -> node20 [color=deepskyblue tooltip="bcomps.vcxproj -> getopt.vcxproj"]
+	node29 -> node27 [color=deepskyblue tooltip="bcomps.vcxproj -> ingraphs.vcxproj"]
+	node29 -> node38 [color=blue tooltip="bcomps.vcxproj -> cdt.vcxproj"]
+	node29 -> node51 [color=blue tooltip="bcomps.vcxproj -> cgraph.vcxproj"]
+	node31 -> node1 [color=deepskyblue tooltip="gvpack.vcxproj -> osage.vcxproj"]
+	node31 -> node2 [color=deepskyblue tooltip="gvpack.vcxproj -> pack.vcxproj"]
+	node31 -> node5 [color=deepskyblue tooltip="gvpack.vcxproj -> common.vcxproj"]
+	node31 -> node14 [color=blue tooltip="gvpack.vcxproj -> pathplan.vcxproj"]
+	node31 -> node19 [color=deepskyblue tooltip="gvpack.vcxproj -> sparse.vcxproj"]
+	node31 -> node20 [color=deepskyblue tooltip="gvpack.vcxproj -> getopt.vcxproj"]
+	node31 -> node21 [color=deepskyblue tooltip="gvpack.vcxproj -> patchwork.vcxproj"]
+	node31 -> node22 [color=blue tooltip="gvpack.vcxproj -> xdot.vcxproj"]
+	node31 -> node23 [color=blue tooltip="gvpack.vcxproj -> gvc.vcxproj"]
+	node31 -> node25 [color=deepskyblue tooltip="gvpack.vcxproj -> rbtree.vcxproj"]
+	node31 -> node27 [color=deepskyblue tooltip="gvpack.vcxproj -> ingraphs.vcxproj"]
+	node31 -> node30 [color=deepskyblue tooltip="gvpack.vcxproj -> fdpgen.vcxproj"]
+	node31 -> node32 [color=deepskyblue tooltip="gvpack.vcxproj -> label.vcxproj"]
+	node31 -> node38 [color=blue tooltip="gvpack.vcxproj -> cdt.vcxproj"]
+	node31 -> node40 [color=deepskyblue tooltip="gvpack.vcxproj -> twopigen.vcxproj"]
+	node31 -> node41 [color=deepskyblue tooltip="gvpack.vcxproj -> ortho.vcxproj"]
+	node31 -> node42 [color=deepskyblue tooltip="gvpack.vcxproj -> sfdpgen.vcxproj"]
+	node31 -> node43 [color=deepskyblue tooltip="gvpack.vcxproj -> circogen.vcxproj"]
+	node31 -> node48 [color=blue tooltip="gvpack.vcxproj -> gvplugin_neato_layout.vcxproj"]
+	node31 -> node50 [color=deepskyblue tooltip="gvpack.vcxproj -> neatogen.vcxproj"]
+	node31 -> node51 [color=blue tooltip="gvpack.vcxproj -> cgraph.vcxproj"]
+	node34 -> node20 [color=deepskyblue tooltip="ccomps.vcxproj -> getopt.vcxproj"]
+	node34 -> node27 [color=deepskyblue tooltip="ccomps.vcxproj -> ingraphs.vcxproj"]
+	node34 -> node38 [color=blue tooltip="ccomps.vcxproj -> cdt.vcxproj"]
+	node34 -> node51 [color=blue tooltip="ccomps.vcxproj -> cgraph.vcxproj"]
+	node35 -> node2 [color=deepskyblue tooltip="gvplugin_core.vcxproj -> pack.vcxproj"]
+	node35 -> node32 [color=deepskyblue tooltip="gvplugin_core.vcxproj -> label.vcxproj"]
+	node35 -> node5 [color=deepskyblue tooltip="gvplugin_core.vcxproj -> common.vcxproj"]
+	node35 -> node22 [color=blue tooltip="gvplugin_core.vcxproj -> xdot.vcxproj"]
+	node35 -> node23 [color=blue tooltip="gvplugin_core.vcxproj -> gvc.vcxproj"]
+	node35 -> node38 [color=blue tooltip="gvplugin_core.vcxproj -> cdt.vcxproj"]
+	node35 -> node41 [color=deepskyblue tooltip="gvplugin_core.vcxproj -> ortho.vcxproj"]
+	node35 -> node51 [color=blue tooltip="gvplugin_core.vcxproj -> cgraph.vcxproj"]
+	node35 -> node14 [color=blue tooltip="gvplugin_core.vcxproj -> pathplan.vcxproj"]
+	node36 -> node2 [color=deepskyblue tooltip="dot.vcxproj -> pack.vcxproj"]
+	node36 -> node32 [color=deepskyblue tooltip="dot.vcxproj -> label.vcxproj"]
+	node36 -> node5 [color=deepskyblue tooltip="dot.vcxproj -> common.vcxproj"]
+	node36 -> node22 [color=blue tooltip="dot.vcxproj -> xdot.vcxproj"]
+	node36 -> node23 [color=blue tooltip="dot.vcxproj -> gvc.vcxproj"]
+	node36 -> node38 [color=blue tooltip="dot.vcxproj -> cdt.vcxproj"]
+	node36 -> node41 [color=deepskyblue tooltip="dot.vcxproj -> ortho.vcxproj"]
+	node36 -> node51 [color=blue tooltip="dot.vcxproj -> cgraph.vcxproj"]
+	node36 -> node14 [color=blue tooltip="dot.vcxproj -> pathplan.vcxproj"]
+	node39 -> node20 [color=deepskyblue tooltip="tred.vcxproj -> getopt.vcxproj"]
+	node39 -> node5 [color=deepskyblue tooltip="tred.vcxproj -> common.vcxproj"]
+	node39 -> node27 [color=deepskyblue tooltip="tred.vcxproj -> ingraphs.vcxproj"]
+	node39 -> node38 [color=blue tooltip="tred.vcxproj -> cdt.vcxproj"]
+	node39 -> node51 [color=blue tooltip="tred.vcxproj -> cgraph.vcxproj"]
+	node44 -> node2 [color=deepskyblue tooltip="gvplugin_gdiplus.vcxproj -> pack.vcxproj"]
+	node44 -> node32 [color=deepskyblue tooltip="gvplugin_gdiplus.vcxproj -> label.vcxproj"]
+	node44 -> node5 [color=deepskyblue tooltip="gvplugin_gdiplus.vcxproj -> common.vcxproj"]
+	node44 -> node22 [color=blue tooltip="gvplugin_gdiplus.vcxproj -> xdot.vcxproj"]
+	node44 -> node23 [color=blue tooltip="gvplugin_gdiplus.vcxproj -> gvc.vcxproj"]
+	node44 -> node38 [color=blue tooltip="gvplugin_gdiplus.vcxproj -> cdt.vcxproj"]
+	node44 -> node41 [color=deepskyblue tooltip="gvplugin_gdiplus.vcxproj -> ortho.vcxproj"]
+	node44 -> node51 [color=blue tooltip="gvplugin_gdiplus.vcxproj -> cgraph.vcxproj"]
+	node44 -> node14 [color=blue tooltip="gvplugin_gdiplus.vcxproj -> pathplan.vcxproj"]
+	node46 -> node20 [color=deepskyblue tooltip="gxl2gv.vcxproj -> getopt.vcxproj"]
+	node46 -> node27 [color=deepskyblue tooltip="gxl2gv.vcxproj -> ingraphs.vcxproj"]
+	node46 -> node38 [color=blue tooltip="gxl2gv.vcxproj -> cdt.vcxproj"]
+	node46 -> node51 [color=blue tooltip="gxl2gv.vcxproj -> cgraph.vcxproj"]
+	node48 -> node1 [color=deepskyblue tooltip="gvplugin_neato_layout.vcxproj -> osage.vcxproj"]
+	node48 -> node2 [color=deepskyblue tooltip="gvplugin_neato_layout.vcxproj -> pack.vcxproj"]
+	node48 -> node19 [color=deepskyblue tooltip="gvplugin_neato_layout.vcxproj -> sparse.vcxproj"]
+	node48 -> node30 [color=deepskyblue tooltip="gvplugin_neato_layout.vcxproj -> fdpgen.vcxproj"]
+	node48 -> node43 [color=deepskyblue tooltip="gvplugin_neato_layout.vcxproj -> circogen.vcxproj"]
+	node48 -> node32 [color=deepskyblue tooltip="gvplugin_neato_layout.vcxproj -> label.vcxproj"]
+	node48 -> node5 [color=deepskyblue tooltip="gvplugin_neato_layout.vcxproj -> common.vcxproj"]
+	node48 -> node21 [color=deepskyblue tooltip="gvplugin_neato_layout.vcxproj -> patchwork.vcxproj"]
+	node48 -> node22 [color=blue tooltip="gvplugin_neato_layout.vcxproj -> xdot.vcxproj"]
+	node48 -> node23 [color=blue tooltip="gvplugin_neato_layout.vcxproj -> gvc.vcxproj"]
+	node48 -> node50 [color=deepskyblue tooltip="gvplugin_neato_layout.vcxproj -> neatogen.vcxproj"]
+	node48 -> node38 [color=blue tooltip="gvplugin_neato_layout.vcxproj -> cdt.vcxproj"]
+	node48 -> node25 [color=deepskyblue tooltip="gvplugin_neato_layout.vcxproj -> rbtree.vcxproj"]
+	node48 -> node42 [color=deepskyblue tooltip="gvplugin_neato_layout.vcxproj -> sfdpgen.vcxproj"]
+	node48 -> node40 [color=deepskyblue tooltip="gvplugin_neato_layout.vcxproj -> twopigen.vcxproj"]
+	node48 -> node41 [color=deepskyblue tooltip="gvplugin_neato_layout.vcxproj -> ortho.vcxproj"]
+	node48 -> node51 [color=blue tooltip="gvplugin_neato_layout.vcxproj -> cgraph.vcxproj"]
+	node48 -> node14 [color=blue tooltip="gvplugin_neato_layout.vcxproj -> pathplan.vcxproj"]
+	node51 -> node38 [color=blue tooltip="cgraph.vcxproj -> cdt.vcxproj"]
+	node52 -> node2 [color=deepskyblue tooltip="gvplugin_gd.vcxproj -> pack.vcxproj"]
+	node52 -> node32 [color=deepskyblue tooltip="gvplugin_gd.vcxproj -> label.vcxproj"]
+	node52 -> node5 [color=deepskyblue tooltip="gvplugin_gd.vcxproj -> common.vcxproj"]
+	node52 -> node22 [color=blue tooltip="gvplugin_gd.vcxproj -> xdot.vcxproj"]
+	node52 -> node23 [color=blue tooltip="gvplugin_gd.vcxproj -> gvc.vcxproj"]
+	node52 -> node38 [color=blue tooltip="gvplugin_gd.vcxproj -> cdt.vcxproj"]
+	node52 -> node41 [color=deepskyblue tooltip="gvplugin_gd.vcxproj -> ortho.vcxproj"]
+	node52 -> node51 [color=blue tooltip="gvplugin_gd.vcxproj -> cgraph.vcxproj"]
+	node52 -> node14 [color=blue tooltip="gvplugin_gd.vcxproj -> pathplan.vcxproj"]
+	subgraph cluster_G__Alexander_Work_Projects_others_graphviz__build {
+		label="G:/Alexander/Work/Projects/others/graphviz/.build/"
+		node45 [label="ALL_BUILD.vcxproj" color=brown tooltip="G:\Alexander\Work\Projects\others\graphviz\.build\ALL_BUILD.vcxproj"]
+		node8 [label="INSTALL.vcxproj" color=brown tooltip="G:\Alexander\Work\Projects\others\graphviz\.build\INSTALL.vcxproj"]
+		node37 [label="PACKAGE.vcxproj" color=brown tooltip="G:\Alexander\Work\Projects\others\graphviz\.build\PACKAGE.vcxproj"]
+		node26 [label="RUN_TESTS.vcxproj" color=brown tooltip="G:\Alexander\Work\Projects\others\graphviz\.build\RUN_TESTS.vcxproj"]
+		node47 [label="uninstall.vcxproj" color=brown tooltip="G:\Alexander\Work\Projects\others\graphviz\.build\uninstall.vcxproj"]
+		node4 [label="ZERO_CHECK.vcxproj" color=brown tooltip="G:\Alexander\Work\Projects\others\graphviz\.build\ZERO_CHECK.vcxproj"]
+		subgraph cluster_G__Alexander_Work_Projects_others_graphviz__build_cmd {
+			label="cmd/"
+			subgraph cluster_G__Alexander_Work_Projects_others_graphviz__build_cmd_dot {
+				label="cmd/dot/"
+				node36 [label="dot.vcxproj" color=limegreen tooltip="G:\Alexander\Work\Projects\others\graphviz\.build\cmd\dot\dot.vcxproj"]
+			}
+			subgraph cluster_G__Alexander_Work_Projects_others_graphviz__build_cmd_tools {
+				label="cmd/tools/"
+				node16 [label="acyclic.vcxproj" color=limegreen tooltip="G:\Alexander\Work\Projects\others\graphviz\.build\cmd\tools\acyclic.vcxproj"]
+				node29 [label="bcomps.vcxproj" color=limegreen tooltip="G:\Alexander\Work\Projects\others\graphviz\.build\cmd\tools\bcomps.vcxproj"]
+				node34 [label="ccomps.vcxproj" color=limegreen tooltip="G:\Alexander\Work\Projects\others\graphviz\.build\cmd\tools\ccomps.vcxproj"]
+				node24 [label="dijkstra.vcxproj" color=limegreen tooltip="G:\Alexander\Work\Projects\others\graphviz\.build\cmd\tools\dijkstra.vcxproj"]
+				node6 [label="gc.vcxproj" color=limegreen tooltip="G:\Alexander\Work\Projects\others\graphviz\.build\cmd\tools\gc.vcxproj"]
+				node28 [label="gml2gv.vcxproj" color=limegreen tooltip="G:\Alexander\Work\Projects\others\graphviz\.build\cmd\tools\gml2gv.vcxproj"]
+				node15 [label="graphml2gv.vcxproj" color=limegreen tooltip="G:\Alexander\Work\Projects\others\graphviz\.build\cmd\tools\graphml2gv.vcxproj"]
+				node7 [label="gvcolor.vcxproj" color=limegreen tooltip="G:\Alexander\Work\Projects\others\graphviz\.build\cmd\tools\gvcolor.vcxproj"]
+				node17 [label="gvgen.vcxproj" color=limegreen tooltip="G:\Alexander\Work\Projects\others\graphviz\.build\cmd\tools\gvgen.vcxproj"]
+				node31 [label="gvpack.vcxproj" color=limegreen tooltip="G:\Alexander\Work\Projects\others\graphviz\.build\cmd\tools\gvpack.vcxproj"]
+				node46 [label="gxl2gv.vcxproj" color=limegreen tooltip="G:\Alexander\Work\Projects\others\graphviz\.build\cmd\tools\gxl2gv.vcxproj"]
+				node11 [label="mm2gv.vcxproj" color=limegreen tooltip="G:\Alexander\Work\Projects\others\graphviz\.build\cmd\tools\mm2gv.vcxproj"]
+				node9 [label="nop.vcxproj" color=limegreen tooltip="G:\Alexander\Work\Projects\others\graphviz\.build\cmd\tools\nop.vcxproj"]
+				node18 [label="sccmap.vcxproj" color=limegreen tooltip="G:\Alexander\Work\Projects\others\graphviz\.build\cmd\tools\sccmap.vcxproj"]
+				node39 [label="tred.vcxproj" color=limegreen tooltip="G:\Alexander\Work\Projects\others\graphviz\.build\cmd\tools\tred.vcxproj"]
+				node3 [label="unflatten.vcxproj" color=limegreen tooltip="G:\Alexander\Work\Projects\others\graphviz\.build\cmd\tools\unflatten.vcxproj"]
+			}
+		}
+		subgraph cluster_G__Alexander_Work_Projects_others_graphviz__build_lib {
+			label="lib/"
+			subgraph cluster_G__Alexander_Work_Projects_others_graphviz__build_lib_cdt {
+				label="lib/cdt/"
+				node38 [label="cdt.vcxproj" color=blue tooltip="G:\Alexander\Work\Projects\others\graphviz\.build\lib\cdt\cdt.vcxproj"]
+			}
+			subgraph cluster_G__Alexander_Work_Projects_others_graphviz__build_lib_cgraph {
+				label="lib/cgraph/"
+				node51 [label="cgraph.vcxproj" color=blue tooltip="G:\Alexander\Work\Projects\others\graphviz\.build\lib\cgraph\cgraph.vcxproj"]
+			}
+			subgraph cluster_G__Alexander_Work_Projects_others_graphviz__build_lib_circogen {
+				label="lib/circogen/"
+				node43 [label="circogen.vcxproj" color=deepskyblue tooltip="G:\Alexander\Work\Projects\others\graphviz\.build\lib\circogen\circogen.vcxproj"]
+			}
+			subgraph cluster_G__Alexander_Work_Projects_others_graphviz__build_lib_common {
+				label="lib/common/"
+				node5 [label="common.vcxproj" color=deepskyblue tooltip="G:\Alexander\Work\Projects\others\graphviz\.build\lib\common\common.vcxproj"]
+			}
+			subgraph cluster_G__Alexander_Work_Projects_others_graphviz__build_lib_dotgen {
+				label="lib/dotgen/"
+				node49 [label="dotgen.vcxproj" color=deepskyblue tooltip="G:\Alexander\Work\Projects\others\graphviz\.build\lib\dotgen\dotgen.vcxproj"]
+			}
+			subgraph cluster_G__Alexander_Work_Projects_others_graphviz__build_lib_fdpgen {
+				label="lib/fdpgen/"
+				node30 [label="fdpgen.vcxproj" color=deepskyblue tooltip="G:\Alexander\Work\Projects\others\graphviz\.build\lib\fdpgen\fdpgen.vcxproj"]
+			}
+			subgraph cluster_G__Alexander_Work_Projects_others_graphviz__build_lib_gvc {
+				label="lib/gvc/"
+				node23 [label="gvc.vcxproj" color=blue tooltip="G:\Alexander\Work\Projects\others\graphviz\.build\lib\gvc\gvc.vcxproj"]
+			}
+			subgraph cluster_G__Alexander_Work_Projects_others_graphviz__build_lib_ingraphs {
+				label="lib/ingraphs/"
+				node27 [label="ingraphs.vcxproj" color=deepskyblue tooltip="G:\Alexander\Work\Projects\others\graphviz\.build\lib\ingraphs\ingraphs.vcxproj"]
+			}
+			subgraph cluster_G__Alexander_Work_Projects_others_graphviz__build_lib_label {
+				label="lib/label/"
+				node32 [label="label.vcxproj" color=deepskyblue tooltip="G:\Alexander\Work\Projects\others\graphviz\.build\lib\label\label.vcxproj"]
+			}
+			subgraph cluster_G__Alexander_Work_Projects_others_graphviz__build_lib_mingle {
+				label="lib/mingle/"
+				node33 [label="libmingle.vcxproj" color=deepskyblue tooltip="G:\Alexander\Work\Projects\others\graphviz\.build\lib\mingle\libmingle.vcxproj"]
+			}
+			subgraph cluster_G__Alexander_Work_Projects_others_graphviz__build_lib_neatogen {
+				label="lib/neatogen/"
+				node50 [label="neatogen.vcxproj" color=deepskyblue tooltip="G:\Alexander\Work\Projects\others\graphviz\.build\lib\neatogen\neatogen.vcxproj"]
+			}
+			subgraph cluster_G__Alexander_Work_Projects_others_graphviz__build_lib_ortho {
+				label="lib/ortho/"
+				node41 [label="ortho.vcxproj" color=deepskyblue tooltip="G:\Alexander\Work\Projects\others\graphviz\.build\lib\ortho\ortho.vcxproj"]
+			}
+			subgraph cluster_G__Alexander_Work_Projects_others_graphviz__build_lib_osage {
+				label="lib/osage/"
+				node1 [label="osage.vcxproj" color=deepskyblue tooltip="G:\Alexander\Work\Projects\others\graphviz\.build\lib\osage\osage.vcxproj"]
+			}
+			subgraph cluster_G__Alexander_Work_Projects_others_graphviz__build_lib_pack {
+				label="lib/pack/"
+				node2 [label="pack.vcxproj" color=deepskyblue tooltip="G:\Alexander\Work\Projects\others\graphviz\.build\lib\pack\pack.vcxproj"]
+			}
+			subgraph cluster_G__Alexander_Work_Projects_others_graphviz__build_lib_patchwork {
+				label="lib/patchwork/"
+				node21 [label="patchwork.vcxproj" color=deepskyblue tooltip="G:\Alexander\Work\Projects\others\graphviz\.build\lib\patchwork\patchwork.vcxproj"]
+			}
+			subgraph cluster_G__Alexander_Work_Projects_others_graphviz__build_lib_pathplan {
+				label="lib/pathplan/"
+				node14 [label="pathplan.vcxproj" color=blue tooltip="G:\Alexander\Work\Projects\others\graphviz\.build\lib\pathplan\pathplan.vcxproj"]
+			}
+			subgraph cluster_G__Alexander_Work_Projects_others_graphviz__build_lib_rbtree {
+				label="lib/rbtree/"
+				node25 [label="rbtree.vcxproj" color=deepskyblue tooltip="G:\Alexander\Work\Projects\others\graphviz\.build\lib\rbtree\rbtree.vcxproj"]
+			}
+			subgraph cluster_G__Alexander_Work_Projects_others_graphviz__build_lib_sfdpgen {
+				label="lib/sfdpgen/"
+				node42 [label="sfdpgen.vcxproj" color=deepskyblue tooltip="G:\Alexander\Work\Projects\others\graphviz\.build\lib\sfdpgen\sfdpgen.vcxproj"]
+			}
+			subgraph cluster_G__Alexander_Work_Projects_others_graphviz__build_lib_sparse {
+				label="lib/sparse/"
+				node19 [label="sparse.vcxproj" color=deepskyblue tooltip="G:\Alexander\Work\Projects\others\graphviz\.build\lib\sparse\sparse.vcxproj"]
+			}
+			subgraph cluster_G__Alexander_Work_Projects_others_graphviz__build_lib_spine {
+				label="lib/spine/"
+				node12 [label="spine.vcxproj" color=deepskyblue tooltip="G:\Alexander\Work\Projects\others\graphviz\.build\lib\spine\spine.vcxproj"]
+			}
+			subgraph cluster_G__Alexander_Work_Projects_others_graphviz__build_lib_twopigen {
+				label="lib/twopigen/"
+				node40 [label="twopigen.vcxproj" color=deepskyblue tooltip="G:\Alexander\Work\Projects\others\graphviz\.build\lib\twopigen\twopigen.vcxproj"]
+			}
+			subgraph cluster_G__Alexander_Work_Projects_others_graphviz__build_lib_vmalloc {
+				label="lib/vmalloc/"
+				node0 [label="vmalloc.vcxproj" color=deepskyblue tooltip="G:\Alexander\Work\Projects\others\graphviz\.build\lib\vmalloc\vmalloc.vcxproj"]
+			}
+			subgraph cluster_G__Alexander_Work_Projects_others_graphviz__build_lib_xdot {
+				label="lib/xdot/"
+				node22 [label="xdot.vcxproj" color=blue tooltip="G:\Alexander\Work\Projects\others\graphviz\.build\lib\xdot\xdot.vcxproj"]
+			}
+		}
+		subgraph cluster_G__Alexander_Work_Projects_others_graphviz__build_plugin {
+			label="plugin/"
+			subgraph cluster_G__Alexander_Work_Projects_others_graphviz__build_plugin_core {
+				label="plugin/core/"
+				node35 [label="gvplugin_core.vcxproj" color=blue tooltip="G:\Alexander\Work\Projects\others\graphviz\.build\plugin\core\gvplugin_core.vcxproj"]
+			}
+			subgraph cluster_G__Alexander_Work_Projects_others_graphviz__build_plugin_dot_layout {
+				label="plugin/dot_layout/"
+				node10 [label="gvplugin_dot_layout.vcxproj" color=blue tooltip="G:\Alexander\Work\Projects\others\graphviz\.build\plugin\dot_layout\gvplugin_dot_layout.vcxproj"]
+			}
+			subgraph cluster_G__Alexander_Work_Projects_others_graphviz__build_plugin_gd {
+				label="plugin/gd/"
+				node52 [label="gvplugin_gd.vcxproj" color=blue tooltip="G:\Alexander\Work\Projects\others\graphviz\.build\plugin\gd\gvplugin_gd.vcxproj"]
+			}
+			subgraph cluster_G__Alexander_Work_Projects_others_graphviz__build_plugin_gdiplus {
+				label="plugin/gdiplus/"
+				node44 [label="gvplugin_gdiplus.vcxproj" color=blue tooltip="G:\Alexander\Work\Projects\others\graphviz\.build\plugin\gdiplus\gvplugin_gdiplus.vcxproj"]
+			}
+			subgraph cluster_G__Alexander_Work_Projects_others_graphviz__build_plugin_neato_layout {
+				label="plugin/neato_layout/"
+				node48 [label="gvplugin_neato_layout.vcxproj" color=blue tooltip="G:\Alexander\Work\Projects\others\graphviz\.build\plugin\neato_layout\gvplugin_neato_layout.vcxproj"]
+			}
+			subgraph cluster_G__Alexander_Work_Projects_others_graphviz__build_plugin_pango {
+				label="plugin/pango/"
+				node13 [label="gvplugin_pango.vcxproj" color=blue tooltip="G:\Alexander\Work\Projects\others\graphviz\.build\plugin\pango\gvplugin_pango.vcxproj"]
+			}
+		}
+		subgraph cluster_G__Alexander_Work_Projects_others_graphviz__build_windows {
+			label="windows/"
+			subgraph cluster_G__Alexander_Work_Projects_others_graphviz__build_windows_getopt {
+				label="windows/getopt/"
+				node20 [label="getopt.vcxproj" color=deepskyblue tooltip="G:\Alexander\Work\Projects\others\graphviz\.build\windows\getopt\getopt.vcxproj"]
+			}
+		}
+	}
+}

@@ -1,0 +1,659 @@
+// Dependencies for projects
+digraph Dependencies {
+	color=grey fontcolor=darkgreen fontsize=16 labelloc=t rankdir=LR style="dotted, bold"
+	node [color=brown fillcolor=beige penwidth=2 shape=box style="filled, rounded"]
+	edge [color=brown]
+	label=Dependencies
+	node1 -> node30 [color=cornflowerblue tooltip="RunElevated.csproj -> Common.csproj"]
+	node2 -> node53 [color=cornflowerblue tooltip="ReplWindowUITests.csproj -> TestRunnerInterop.csproj"]
+	node2 -> node32 [color=cornflowerblue tooltip="ReplWindowUITests.csproj -> VSInterpreters.csproj"]
+	node2 -> node34 [color=cornflowerblue tooltip="ReplWindowUITests.csproj -> TestUtilities.UI.csproj"]
+	node2 -> node3 [color=cornflowerblue tooltip="ReplWindowUITests.csproj -> PythonTools.csproj"]
+	node2 -> node38 [color=cornflowerblue tooltip="ReplWindowUITests.csproj -> TestUtilities.csproj"]
+	node2 -> node66 [color=cornflowerblue tooltip="ReplWindowUITests.csproj -> Analysis.csproj"]
+	node2 -> node14 [color=cornflowerblue tooltip="ReplWindowUITests.csproj -> PythonToolsTests.csproj"]
+	node2 -> node44 [color=cornflowerblue tooltip="ReplWindowUITests.csproj -> TestUtilities.Python.csproj"]
+	node2 -> node72 [color=cornflowerblue tooltip="ReplWindowUITests.csproj -> VSCommon.csproj"]
+	node2 -> node73 [color=cornflowerblue tooltip="ReplWindowUITests.csproj -> TestUtilities.Python.Analysis.csproj"]
+	node3 -> node55 [color=cornflowerblue tooltip="PythonTools.csproj -> EnvironmentsList.csproj"]
+	node3 -> node56 [color=cornflowerblue tooltip="PythonTools.csproj -> Ipc.Json.csproj"]
+	node3 -> node30 [color=cornflowerblue tooltip="PythonTools.csproj -> Common.csproj"]
+	node3 -> node1 [color=green tooltip="PythonTools.csproj -> RunElevated.csproj"]
+	node3 -> node32 [color=cornflowerblue tooltip="PythonTools.csproj -> VSInterpreters.csproj"]
+	node3 -> node65 [color=cornflowerblue tooltip="PythonTools.csproj -> Debugger.Concord.csproj"]
+	node3 -> node66 [color=cornflowerblue tooltip="PythonTools.csproj -> Analysis.csproj"]
+	node3 -> node67 [color=green tooltip="PythonTools.csproj -> Analyzer.csproj"]
+	node3 -> node11 [color=cornflowerblue tooltip="PythonTools.csproj -> BuildTasks.csproj"]
+	node3 -> node70 [color=cornflowerblue tooltip="PythonTools.csproj -> Debugger.csproj"]
+	node3 -> node46 [color=green tooltip="PythonTools.csproj -> AttacherX86.csproj"]
+	node3 -> node72 [color=cornflowerblue tooltip="PythonTools.csproj -> VSCommon.csproj"]
+	node3 -> node75 [color=green tooltip="PythonTools.csproj -> Attacher.csproj"]
+	node4 -> node66 [color=cornflowerblue tooltip="TestAdapter.Executor.csproj -> Analysis.csproj"]
+	node4 -> node30 [color=cornflowerblue tooltip="TestAdapter.Executor.csproj -> Common.csproj"]
+	node4 -> node56 [color=cornflowerblue tooltip="TestAdapter.Executor.csproj -> Ipc.Json.csproj"]
+	node5 -> node45 [color=cornflowerblue tooltip="BuildTasks.Core.csproj -> WebRole.csproj"]
+	node5 -> node30 [color=cornflowerblue tooltip="BuildTasks.Core.csproj -> Common.csproj"]
+	node6 -> node66 [color=cornflowerblue tooltip="XamlDesignerSupport.csproj -> Analysis.csproj"]
+	node6 -> node30 [color=cornflowerblue tooltip="XamlDesignerSupport.csproj -> Common.csproj"]
+	node6 -> node72 [color=cornflowerblue tooltip="XamlDesignerSupport.csproj -> VSCommon.csproj"]
+	node7 -> node51 [color=cornflowerblue tooltip="CookiecutterTests.csproj -> Cookiecutter.csproj"]
+	node7 -> node38 [color=cornflowerblue tooltip="CookiecutterTests.csproj -> TestUtilities.csproj"]
+	node8 -> node66 [color=cornflowerblue tooltip="ProjectWizards.csproj -> Analysis.csproj"]
+	node8 -> node30 [color=cornflowerblue tooltip="ProjectWizards.csproj -> Common.csproj"]
+	node8 -> node72 [color=cornflowerblue tooltip="ProjectWizards.csproj -> VSCommon.csproj"]
+	node9 -> node56 [color=cornflowerblue tooltip="IpcJsonTests.csproj -> Ipc.Json.csproj"]
+	node9 -> node30 [color=cornflowerblue tooltip="IpcJsonTests.csproj -> Common.csproj"]
+	node9 -> node38 [color=cornflowerblue tooltip="IpcJsonTests.csproj -> TestUtilities.csproj"]
+	node9 -> node66 [color=cornflowerblue tooltip="IpcJsonTests.csproj -> Analysis.csproj"]
+	node9 -> node73 [color=cornflowerblue tooltip="IpcJsonTests.csproj -> TestUtilities.Python.Analysis.csproj"]
+	node10 -> node70 [color=cornflowerblue tooltip="VCDebugLauncher.csproj -> Debugger.csproj"]
+	node10 -> node66 [color=cornflowerblue tooltip="VCDebugLauncher.csproj -> Analysis.csproj"]
+	node10 -> node30 [color=cornflowerblue tooltip="VCDebugLauncher.csproj -> Common.csproj"]
+	node10 -> node3 [color=cornflowerblue tooltip="VCDebugLauncher.csproj -> PythonTools.csproj"]
+	node11 -> node30 [color=cornflowerblue tooltip="BuildTasks.csproj -> Common.csproj"]
+	node11 -> node32 [color=cornflowerblue tooltip="BuildTasks.csproj -> VSInterpreters.csproj"]
+	node11 -> node66 [color=cornflowerblue tooltip="BuildTasks.csproj -> Analysis.csproj"]
+	node11 -> node45 [color=cornflowerblue tooltip="BuildTasks.csproj -> WebRole.csproj"]
+	node11 -> node72 [color=cornflowerblue tooltip="BuildTasks.csproj -> VSCommon.csproj"]
+	node12 -> node62 [color=cornflowerblue tooltip="DjangoUITestsRunner.csproj -> DjangoUITests.csproj"]
+	node12 -> node53 [color=cornflowerblue tooltip="DjangoUITestsRunner.csproj -> TestRunnerInterop.csproj"]
+	node13 -> node30 [color=cornflowerblue tooltip="DebuggerUITests.csproj -> Common.csproj"]
+	node13 -> node53 [color=cornflowerblue tooltip="DebuggerUITests.csproj -> TestRunnerInterop.csproj"]
+	node13 -> node32 [color=cornflowerblue tooltip="DebuggerUITests.csproj -> VSInterpreters.csproj"]
+	node13 -> node34 [color=cornflowerblue tooltip="DebuggerUITests.csproj -> TestUtilities.UI.csproj"]
+	node13 -> node44 [color=cornflowerblue tooltip="DebuggerUITests.csproj -> TestUtilities.Python.csproj"]
+	node13 -> node3 [color=cornflowerblue tooltip="DebuggerUITests.csproj -> PythonTools.csproj"]
+	node13 -> node38 [color=cornflowerblue tooltip="DebuggerUITests.csproj -> TestUtilities.csproj"]
+	node13 -> node66 [color=cornflowerblue tooltip="DebuggerUITests.csproj -> Analysis.csproj"]
+	node13 -> node73 [color=cornflowerblue tooltip="DebuggerUITests.csproj -> TestUtilities.Python.Analysis.csproj"]
+	node13 -> node70 [color=cornflowerblue tooltip="DebuggerUITests.csproj -> Debugger.csproj"]
+	node13 -> node72 [color=cornflowerblue tooltip="DebuggerUITests.csproj -> VSCommon.csproj"]
+	node13 -> node16 [color=cornflowerblue tooltip="DebuggerUITests.csproj -> TestSccPackage.csproj"]
+	node14 -> node30 [color=cornflowerblue tooltip="PythonToolsTests.csproj -> Common.csproj"]
+	node14 -> node55 [color=cornflowerblue tooltip="PythonToolsTests.csproj -> EnvironmentsList.csproj"]
+	node14 -> node32 [color=cornflowerblue tooltip="PythonToolsTests.csproj -> VSInterpreters.csproj"]
+	node14 -> node34 [color=cornflowerblue tooltip="PythonToolsTests.csproj -> TestUtilities.UI.csproj"]
+	node14 -> node44 [color=cornflowerblue tooltip="PythonToolsTests.csproj -> TestUtilities.Python.csproj"]
+	node14 -> node3 [color=cornflowerblue tooltip="PythonToolsTests.csproj -> PythonTools.csproj"]
+	node14 -> node38 [color=cornflowerblue tooltip="PythonToolsTests.csproj -> TestUtilities.csproj"]
+	node14 -> node66 [color=cornflowerblue tooltip="PythonToolsTests.csproj -> Analysis.csproj"]
+	node14 -> node67 [color=green tooltip="PythonToolsTests.csproj -> Analyzer.csproj"]
+	node14 -> node11 [color=cornflowerblue tooltip="PythonToolsTests.csproj -> BuildTasks.csproj"]
+	node14 -> node70 [color=cornflowerblue tooltip="PythonToolsTests.csproj -> Debugger.csproj"]
+	node14 -> node72 [color=cornflowerblue tooltip="PythonToolsTests.csproj -> VSCommon.csproj"]
+	node14 -> node73 [color=cornflowerblue tooltip="PythonToolsTests.csproj -> TestUtilities.Python.Analysis.csproj"]
+	node15 -> node53 [color=cornflowerblue tooltip="ProjectUITestsRunner.csproj -> TestRunnerInterop.csproj"]
+	node15 -> node39 [color=cornflowerblue tooltip="ProjectUITestsRunner.csproj -> ProjectUITests.csproj"]
+	node17 -> node30 [color=cornflowerblue tooltip="DebuggerTests.csproj -> Common.csproj"]
+	node17 -> node44 [color=cornflowerblue tooltip="DebuggerTests.csproj -> TestUtilities.Python.csproj"]
+	node17 -> node3 [color=cornflowerblue tooltip="DebuggerTests.csproj -> PythonTools.csproj"]
+	node17 -> node38 [color=cornflowerblue tooltip="DebuggerTests.csproj -> TestUtilities.csproj"]
+	node17 -> node66 [color=cornflowerblue tooltip="DebuggerTests.csproj -> Analysis.csproj"]
+	node17 -> node70 [color=cornflowerblue tooltip="DebuggerTests.csproj -> Debugger.csproj"]
+	node17 -> node73 [color=cornflowerblue tooltip="DebuggerTests.csproj -> TestUtilities.Python.Analysis.csproj"]
+	node17 -> node75 [color=green tooltip="DebuggerTests.csproj -> Attacher.csproj"]
+	node18 -> node66 [color=cornflowerblue tooltip="Django.Analysis.csproj -> Analysis.csproj"]
+	node18 -> node67 [color=green tooltip="Django.Analysis.csproj -> Analyzer.csproj"]
+	node18 -> node32 [color=cornflowerblue tooltip="Django.Analysis.csproj -> VSInterpreters.csproj"]
+	node19 -> node30 [color=cornflowerblue tooltip="PythonToolsMockTests.csproj -> Common.csproj"]
+	node19 -> node32 [color=cornflowerblue tooltip="PythonToolsMockTests.csproj -> VSInterpreters.csproj"]
+	node19 -> node34 [color=cornflowerblue tooltip="PythonToolsMockTests.csproj -> TestUtilities.UI.csproj"]
+	node19 -> node44 [color=cornflowerblue tooltip="PythonToolsMockTests.csproj -> TestUtilities.Python.csproj"]
+	node19 -> node3 [color=cornflowerblue tooltip="PythonToolsMockTests.csproj -> PythonTools.csproj"]
+	node19 -> node38 [color=cornflowerblue tooltip="PythonToolsMockTests.csproj -> TestUtilities.csproj"]
+	node19 -> node66 [color=cornflowerblue tooltip="PythonToolsMockTests.csproj -> Analysis.csproj"]
+	node19 -> node67 [color=green tooltip="PythonToolsMockTests.csproj -> Analyzer.csproj"]
+	node19 -> node11 [color=cornflowerblue tooltip="PythonToolsMockTests.csproj -> BuildTasks.csproj"]
+	node19 -> node69 [color=cornflowerblue tooltip="PythonToolsMockTests.csproj -> MockVsTests.csproj"]
+	node19 -> node70 [color=cornflowerblue tooltip="PythonToolsMockTests.csproj -> Debugger.csproj"]
+	node19 -> node72 [color=cornflowerblue tooltip="PythonToolsMockTests.csproj -> VSCommon.csproj"]
+	node19 -> node73 [color=cornflowerblue tooltip="PythonToolsMockTests.csproj -> TestUtilities.Python.Analysis.csproj"]
+	node72 -> node66 [color=cornflowerblue tooltip="VSCommon.csproj -> Analysis.csproj"]
+	node72 -> node30 [color=cornflowerblue tooltip="VSCommon.csproj -> Common.csproj"]
+	node20 -> node66 [color=cornflowerblue tooltip="AnalysisBrowser.csproj -> Analysis.csproj"]
+	node20 -> node30 [color=cornflowerblue tooltip="AnalysisBrowser.csproj -> Common.csproj"]
+	node20 -> node67 [color=green tooltip="AnalysisBrowser.csproj -> Analyzer.csproj"]
+	node21 -> node1 [color=green tooltip="Core.csproj -> RunElevated.csproj"]
+	node21 -> node3 [color=cornflowerblue tooltip="Core.csproj -> PythonTools.csproj"]
+	node21 -> node4 [color=cornflowerblue tooltip="Core.csproj -> TestAdapter.Executor.csproj"]
+	node21 -> node6 [color=cornflowerblue tooltip="Core.csproj -> XamlDesignerSupport.csproj"]
+	node21 -> node8 [color=cornflowerblue tooltip="Core.csproj -> ProjectWizards.csproj"]
+	node21 -> node11 [color=cornflowerblue tooltip="Core.csproj -> BuildTasks.csproj"]
+	node21 -> node23 [color=blue tooltip="Core.csproj -> PyDebugAttach.vcxproj"]
+	node21 -> node30 [color=cornflowerblue tooltip="Core.csproj -> Common.csproj"]
+	node21 -> node33 [color=blue tooltip="Core.csproj -> DebuggerHelper.vcxproj"]
+	node21 -> node32 [color=cornflowerblue tooltip="Core.csproj -> VSInterpreters.csproj"]
+	node21 -> node35 [color=cornflowerblue tooltip="Core.csproj -> TestAdapter.Analysis.csproj"]
+	node21 -> node36 [color=blue tooltip="Core.csproj -> PyDebugAttachX86.vcxproj"]
+	node21 -> node43 [color=cornflowerblue tooltip="Core.csproj -> TestAdapter.csproj"]
+	node21 -> node46 [color=green tooltip="Core.csproj -> AttacherX86.csproj"]
+	node21 -> node55 [color=cornflowerblue tooltip="Core.csproj -> EnvironmentsList.csproj"]
+	node21 -> node56 [color=cornflowerblue tooltip="Core.csproj -> Ipc.Json.csproj"]
+	node21 -> node57 [color=cornflowerblue tooltip="Core.csproj -> Workspace.csproj"]
+	node21 -> node64 [color=cornflowerblue tooltip="Core.csproj -> Templates.csproj"]
+	node21 -> node65 [color=cornflowerblue tooltip="Core.csproj -> Debugger.Concord.csproj"]
+	node21 -> node66 [color=cornflowerblue tooltip="Core.csproj -> Analysis.csproj"]
+	node21 -> node67 [color=green tooltip="Core.csproj -> Analyzer.csproj"]
+	node21 -> node70 [color=cornflowerblue tooltip="Core.csproj -> Debugger.csproj"]
+	node21 -> node71 [color=blue tooltip="Core.csproj -> DebuggerHelperX86.vcxproj"]
+	node21 -> node72 [color=cornflowerblue tooltip="Core.csproj -> VSCommon.csproj"]
+	node21 -> node75 [color=green tooltip="Core.csproj -> Attacher.csproj"]
+	node22 -> node30 [color=cornflowerblue tooltip="ProfilingTests.csproj -> Common.csproj"]
+	node22 -> node38 [color=cornflowerblue tooltip="ProfilingTests.csproj -> TestUtilities.csproj"]
+	node22 -> node66 [color=cornflowerblue tooltip="ProfilingTests.csproj -> Analysis.csproj"]
+	node22 -> node27 [color=cornflowerblue tooltip="ProfilingTests.csproj -> Profiling.csproj"]
+	node22 -> node44 [color=cornflowerblue tooltip="ProfilingTests.csproj -> TestUtilities.Python.csproj"]
+	node22 -> node73 [color=cornflowerblue tooltip="ProfilingTests.csproj -> TestUtilities.Python.Analysis.csproj"]
+	node25 -> node52 [color=cornflowerblue tooltip="FastCgiTest.csproj -> Django.csproj"]
+	node25 -> node30 [color=cornflowerblue tooltip="FastCgiTest.csproj -> Common.csproj"]
+	node25 -> node38 [color=cornflowerblue tooltip="FastCgiTest.csproj -> TestUtilities.csproj"]
+	node25 -> node11 [color=cornflowerblue tooltip="FastCgiTest.csproj -> BuildTasks.csproj"]
+	node25 -> node44 [color=cornflowerblue tooltip="FastCgiTest.csproj -> TestUtilities.Python.csproj"]
+	node25 -> node73 [color=cornflowerblue tooltip="FastCgiTest.csproj -> TestUtilities.Python.Analysis.csproj"]
+	node26 -> node30 [color=cornflowerblue tooltip="IronPython.Interpreter.csproj -> Common.csproj"]
+	node26 -> node32 [color=cornflowerblue tooltip="IronPython.Interpreter.csproj -> VSInterpreters.csproj"]
+	node26 -> node66 [color=cornflowerblue tooltip="IronPython.Interpreter.csproj -> Analysis.csproj"]
+	node26 -> node67 [color=green tooltip="IronPython.Interpreter.csproj -> Analyzer.csproj"]
+	node26 -> node48 [color=cornflowerblue tooltip="IronPython.Interpreter.csproj -> IronPythonResolver.csproj"]
+	node27 -> node30 [color=cornflowerblue tooltip="Profiling.csproj -> Common.csproj"]
+	node27 -> node32 [color=cornflowerblue tooltip="Profiling.csproj -> VSInterpreters.csproj"]
+	node27 -> node24 [color=blue tooltip="Profiling.csproj -> VsPyProfX86.vcxproj"]
+	node27 -> node3 [color=cornflowerblue tooltip="Profiling.csproj -> PythonTools.csproj"]
+	node27 -> node66 [color=cornflowerblue tooltip="Profiling.csproj -> Analysis.csproj"]
+	node27 -> node72 [color=cornflowerblue tooltip="Profiling.csproj -> VSCommon.csproj"]
+	node27 -> node49 [color=blue tooltip="Profiling.csproj -> VsPyProf.vcxproj"]
+	node28 -> node70 [color=cornflowerblue tooltip="Wsl.csproj -> Debugger.csproj"]
+	node28 -> node66 [color=cornflowerblue tooltip="Wsl.csproj -> Analysis.csproj"]
+	node28 -> node30 [color=cornflowerblue tooltip="Wsl.csproj -> Common.csproj"]
+	node28 -> node3 [color=cornflowerblue tooltip="Wsl.csproj -> PythonTools.csproj"]
+	node29 -> node32 [color=cornflowerblue tooltip="IronPythonTests.csproj -> VSInterpreters.csproj"]
+	node29 -> node60 [color=cornflowerblue tooltip="IronPythonTests.csproj -> AnalysisTests.csproj"]
+	node29 -> node61 [color=cornflowerblue tooltip="IronPythonTests.csproj -> IronPython.csproj"]
+	node29 -> node34 [color=cornflowerblue tooltip="IronPythonTests.csproj -> TestUtilities.UI.csproj"]
+	node29 -> node3 [color=cornflowerblue tooltip="IronPythonTests.csproj -> PythonTools.csproj"]
+	node29 -> node38 [color=cornflowerblue tooltip="IronPythonTests.csproj -> TestUtilities.csproj"]
+	node29 -> node66 [color=cornflowerblue tooltip="IronPythonTests.csproj -> Analysis.csproj"]
+	node29 -> node67 [color=green tooltip="IronPythonTests.csproj -> Analyzer.csproj"]
+	node29 -> node26 [color=cornflowerblue tooltip="IronPythonTests.csproj -> IronPython.Interpreter.csproj"]
+	node29 -> node44 [color=cornflowerblue tooltip="IronPythonTests.csproj -> TestUtilities.Python.csproj"]
+	node29 -> node73 [color=cornflowerblue tooltip="IronPythonTests.csproj -> TestUtilities.Python.Analysis.csproj"]
+	node31 -> node37 [color=cornflowerblue tooltip="Uwp.csproj -> Uwp.Interpreter.csproj"]
+	node31 -> node3 [color=cornflowerblue tooltip="Uwp.csproj -> PythonTools.csproj"]
+	node31 -> node66 [color=cornflowerblue tooltip="Uwp.csproj -> Analysis.csproj"]
+	node31 -> node70 [color=cornflowerblue tooltip="Uwp.csproj -> Debugger.csproj"]
+	node31 -> node47 [color=cornflowerblue tooltip="Uwp.csproj -> Uwp.Wizards.csproj"]
+	node32 -> node66 [color=cornflowerblue tooltip="VSInterpreters.csproj -> Analysis.csproj"]
+	node32 -> node30 [color=cornflowerblue tooltip="VSInterpreters.csproj -> Common.csproj"]
+	node32 -> node67 [color=green tooltip="VSInterpreters.csproj -> Analyzer.csproj"]
+	node34 -> node53 [color=cornflowerblue tooltip="TestUtilities.UI.csproj -> TestRunnerInterop.csproj"]
+	node34 -> node38 [color=cornflowerblue tooltip="TestUtilities.UI.csproj -> TestUtilities.csproj"]
+	node34 -> node69 [color=cornflowerblue tooltip="TestUtilities.UI.csproj -> MockVsTests.csproj"]
+	node35 -> node66 [color=cornflowerblue tooltip="TestAdapter.Analysis.csproj -> Analysis.csproj"]
+	node35 -> node30 [color=cornflowerblue tooltip="TestAdapter.Analysis.csproj -> Common.csproj"]
+	node37 -> node66 [color=cornflowerblue tooltip="Uwp.Interpreter.csproj -> Analysis.csproj"]
+	node37 -> node67 [color=green tooltip="Uwp.Interpreter.csproj -> Analyzer.csproj"]
+	node37 -> node32 [color=cornflowerblue tooltip="Uwp.Interpreter.csproj -> VSInterpreters.csproj"]
+	node39 -> node34 [color=cornflowerblue tooltip="ProjectUITests.csproj -> TestUtilities.UI.csproj"]
+	node39 -> node53 [color=cornflowerblue tooltip="ProjectUITests.csproj -> TestRunnerInterop.csproj"]
+	node39 -> node16 [color=cornflowerblue tooltip="ProjectUITests.csproj -> TestSccPackage.csproj"]
+	node39 -> node38 [color=cornflowerblue tooltip="ProjectUITests.csproj -> TestUtilities.csproj"]
+	node40 -> node30 [color=cornflowerblue tooltip="TestAdapterTests.csproj -> Common.csproj"]
+	node40 -> node35 [color=cornflowerblue tooltip="TestAdapterTests.csproj -> TestAdapter.Analysis.csproj"]
+	node40 -> node3 [color=cornflowerblue tooltip="TestAdapterTests.csproj -> PythonTools.csproj"]
+	node40 -> node4 [color=cornflowerblue tooltip="TestAdapterTests.csproj -> TestAdapter.Executor.csproj"]
+	node40 -> node38 [color=cornflowerblue tooltip="TestAdapterTests.csproj -> TestUtilities.csproj"]
+	node40 -> node66 [color=cornflowerblue tooltip="TestAdapterTests.csproj -> Analysis.csproj"]
+	node40 -> node43 [color=cornflowerblue tooltip="TestAdapterTests.csproj -> TestAdapter.csproj"]
+	node40 -> node44 [color=cornflowerblue tooltip="TestAdapterTests.csproj -> TestUtilities.Python.csproj"]
+	node40 -> node72 [color=cornflowerblue tooltip="TestAdapterTests.csproj -> VSCommon.csproj"]
+	node40 -> node73 [color=cornflowerblue tooltip="TestAdapterTests.csproj -> TestUtilities.Python.Analysis.csproj"]
+	node41 -> node0 [color=cornflowerblue tooltip="ProfilingUITestsRunner.csproj -> ProfilingUITests.csproj"]
+	node41 -> node53 [color=cornflowerblue tooltip="ProfilingUITestsRunner.csproj -> TestRunnerInterop.csproj"]
+	node42 -> node53 [color=cornflowerblue tooltip="DebuggerUITestsRunner.csproj -> TestRunnerInterop.csproj"]
+	node42 -> node13 [color=cornflowerblue tooltip="DebuggerUITestsRunner.csproj -> DebuggerUITests.csproj"]
+	node43 -> node30 [color=cornflowerblue tooltip="TestAdapter.csproj -> Common.csproj"]
+	node43 -> node56 [color=cornflowerblue tooltip="TestAdapter.csproj -> Ipc.Json.csproj"]
+	node43 -> node32 [color=cornflowerblue tooltip="TestAdapter.csproj -> VSInterpreters.csproj"]
+	node43 -> node35 [color=cornflowerblue tooltip="TestAdapter.csproj -> TestAdapter.Analysis.csproj"]
+	node43 -> node4 [color=cornflowerblue tooltip="TestAdapter.csproj -> TestAdapter.Executor.csproj"]
+	node43 -> node66 [color=cornflowerblue tooltip="TestAdapter.csproj -> Analysis.csproj"]
+	node43 -> node67 [color=green tooltip="TestAdapter.csproj -> Analyzer.csproj"]
+	node43 -> node72 [color=cornflowerblue tooltip="TestAdapter.csproj -> VSCommon.csproj"]
+	node44 -> node30 [color=cornflowerblue tooltip="TestUtilities.Python.csproj -> Common.csproj"]
+	node44 -> node32 [color=cornflowerblue tooltip="TestUtilities.Python.csproj -> VSInterpreters.csproj"]
+	node44 -> node34 [color=cornflowerblue tooltip="TestUtilities.Python.csproj -> TestUtilities.UI.csproj"]
+	node44 -> node3 [color=cornflowerblue tooltip="TestUtilities.Python.csproj -> PythonTools.csproj"]
+	node44 -> node38 [color=cornflowerblue tooltip="TestUtilities.Python.csproj -> TestUtilities.csproj"]
+	node44 -> node66 [color=cornflowerblue tooltip="TestUtilities.Python.csproj -> Analysis.csproj"]
+	node44 -> node69 [color=cornflowerblue tooltip="TestUtilities.Python.csproj -> MockVsTests.csproj"]
+	node44 -> node73 [color=cornflowerblue tooltip="TestUtilities.Python.csproj -> TestUtilities.Python.Analysis.csproj"]
+	node44 -> node72 [color=cornflowerblue tooltip="TestUtilities.Python.csproj -> VSCommon.csproj"]
+	node44 -> node16 [color=cornflowerblue tooltip="TestUtilities.Python.csproj -> TestSccPackage.csproj"]
+	node46 -> node75 [color=green tooltip="AttacherX86.csproj -> Attacher.csproj"]
+	node47 -> node37 [color=cornflowerblue tooltip="Uwp.Wizards.csproj -> Uwp.Interpreter.csproj"]
+	node52 -> node18 [color=cornflowerblue tooltip="Django.csproj -> Django.Analysis.csproj"]
+	node52 -> node30 [color=cornflowerblue tooltip="Django.csproj -> Common.csproj"]
+	node52 -> node3 [color=cornflowerblue tooltip="Django.csproj -> PythonTools.csproj"]
+	node52 -> node66 [color=cornflowerblue tooltip="Django.csproj -> Analysis.csproj"]
+	node52 -> node70 [color=cornflowerblue tooltip="Django.csproj -> Debugger.csproj"]
+	node52 -> node72 [color=cornflowerblue tooltip="Django.csproj -> VSCommon.csproj"]
+	node54 -> node30 [color=cornflowerblue tooltip="PythonToolsUITests.csproj -> Common.csproj"]
+	node54 -> node53 [color=cornflowerblue tooltip="PythonToolsUITests.csproj -> TestRunnerInterop.csproj"]
+	node54 -> node55 [color=cornflowerblue tooltip="PythonToolsUITests.csproj -> EnvironmentsList.csproj"]
+	node54 -> node32 [color=cornflowerblue tooltip="PythonToolsUITests.csproj -> VSInterpreters.csproj"]
+	node54 -> node21 [color=cornflowerblue tooltip="PythonToolsUITests.csproj -> Core.csproj"]
+	node54 -> node34 [color=cornflowerblue tooltip="PythonToolsUITests.csproj -> TestUtilities.UI.csproj"]
+	node54 -> node44 [color=cornflowerblue tooltip="PythonToolsUITests.csproj -> TestUtilities.Python.csproj"]
+	node54 -> node3 [color=cornflowerblue tooltip="PythonToolsUITests.csproj -> PythonTools.csproj"]
+	node54 -> node38 [color=cornflowerblue tooltip="PythonToolsUITests.csproj -> TestUtilities.csproj"]
+	node54 -> node66 [color=cornflowerblue tooltip="PythonToolsUITests.csproj -> Analysis.csproj"]
+	node54 -> node73 [color=cornflowerblue tooltip="PythonToolsUITests.csproj -> TestUtilities.Python.Analysis.csproj"]
+	node54 -> node72 [color=cornflowerblue tooltip="PythonToolsUITests.csproj -> VSCommon.csproj"]
+	node54 -> node16 [color=cornflowerblue tooltip="PythonToolsUITests.csproj -> TestSccPackage.csproj"]
+	node55 -> node30 [color=cornflowerblue tooltip="EnvironmentsList.csproj -> Common.csproj"]
+	node55 -> node32 [color=cornflowerblue tooltip="EnvironmentsList.csproj -> VSInterpreters.csproj"]
+	node55 -> node66 [color=cornflowerblue tooltip="EnvironmentsList.csproj -> Analysis.csproj"]
+	node55 -> node67 [color=green tooltip="EnvironmentsList.csproj -> Analyzer.csproj"]
+	node55 -> node72 [color=cornflowerblue tooltip="EnvironmentsList.csproj -> VSCommon.csproj"]
+	node57 -> node30 [color=cornflowerblue tooltip="Workspace.csproj -> Common.csproj"]
+	node57 -> node56 [color=cornflowerblue tooltip="Workspace.csproj -> Ipc.Json.csproj"]
+	node57 -> node32 [color=cornflowerblue tooltip="Workspace.csproj -> VSInterpreters.csproj"]
+	node57 -> node3 [color=cornflowerblue tooltip="Workspace.csproj -> PythonTools.csproj"]
+	node57 -> node66 [color=cornflowerblue tooltip="Workspace.csproj -> Analysis.csproj"]
+	node57 -> node67 [color=green tooltip="Workspace.csproj -> Analyzer.csproj"]
+	node57 -> node70 [color=cornflowerblue tooltip="Workspace.csproj -> Debugger.csproj"]
+	node57 -> node72 [color=cornflowerblue tooltip="Workspace.csproj -> VSCommon.csproj"]
+	node58 -> node54 [color=cornflowerblue tooltip="PythonToolsUITestsRunner.csproj -> PythonToolsUITests.csproj"]
+	node58 -> node53 [color=cornflowerblue tooltip="PythonToolsUITestsRunner.csproj -> TestRunnerInterop.csproj"]
+	node59 -> node18 [color=cornflowerblue tooltip="DjangoTests.csproj -> Django.Analysis.csproj"]
+	node59 -> node52 [color=cornflowerblue tooltip="DjangoTests.csproj -> Django.csproj"]
+	node59 -> node30 [color=cornflowerblue tooltip="DjangoTests.csproj -> Common.csproj"]
+	node59 -> node44 [color=cornflowerblue tooltip="DjangoTests.csproj -> TestUtilities.Python.csproj"]
+	node59 -> node38 [color=cornflowerblue tooltip="DjangoTests.csproj -> TestUtilities.csproj"]
+	node59 -> node66 [color=cornflowerblue tooltip="DjangoTests.csproj -> Analysis.csproj"]
+	node59 -> node67 [color=green tooltip="DjangoTests.csproj -> Analyzer.csproj"]
+	node59 -> node70 [color=cornflowerblue tooltip="DjangoTests.csproj -> Debugger.csproj"]
+	node59 -> node73 [color=cornflowerblue tooltip="DjangoTests.csproj -> TestUtilities.Python.Analysis.csproj"]
+	node59 -> node17 [color=cornflowerblue tooltip="DjangoTests.csproj -> DebuggerTests.csproj"]
+	node60 -> node30 [color=cornflowerblue tooltip="AnalysisTests.csproj -> Common.csproj"]
+	node60 -> node1 [color=green tooltip="AnalysisTests.csproj -> RunElevated.csproj"]
+	node60 -> node38 [color=cornflowerblue tooltip="AnalysisTests.csproj -> TestUtilities.csproj"]
+	node60 -> node66 [color=cornflowerblue tooltip="AnalysisTests.csproj -> Analysis.csproj"]
+	node60 -> node67 [color=green tooltip="AnalysisTests.csproj -> Analyzer.csproj"]
+	node60 -> node73 [color=cornflowerblue tooltip="AnalysisTests.csproj -> TestUtilities.Python.Analysis.csproj"]
+	node61 -> node30 [color=cornflowerblue tooltip="IronPython.csproj -> Common.csproj"]
+	node61 -> node32 [color=cornflowerblue tooltip="IronPython.csproj -> VSInterpreters.csproj"]
+	node61 -> node3 [color=cornflowerblue tooltip="IronPython.csproj -> PythonTools.csproj"]
+	node61 -> node66 [color=cornflowerblue tooltip="IronPython.csproj -> Analysis.csproj"]
+	node61 -> node26 [color=cornflowerblue tooltip="IronPython.csproj -> IronPython.Interpreter.csproj"]
+	node61 -> node48 [color=cornflowerblue tooltip="IronPython.csproj -> IronPythonResolver.csproj"]
+	node62 -> node52 [color=cornflowerblue tooltip="DjangoUITests.csproj -> Django.csproj"]
+	node62 -> node30 [color=cornflowerblue tooltip="DjangoUITests.csproj -> Common.csproj"]
+	node62 -> node53 [color=cornflowerblue tooltip="DjangoUITests.csproj -> TestRunnerInterop.csproj"]
+	node62 -> node32 [color=cornflowerblue tooltip="DjangoUITests.csproj -> VSInterpreters.csproj"]
+	node62 -> node34 [color=cornflowerblue tooltip="DjangoUITests.csproj -> TestUtilities.UI.csproj"]
+	node62 -> node44 [color=cornflowerblue tooltip="DjangoUITests.csproj -> TestUtilities.Python.csproj"]
+	node62 -> node3 [color=cornflowerblue tooltip="DjangoUITests.csproj -> PythonTools.csproj"]
+	node62 -> node38 [color=cornflowerblue tooltip="DjangoUITests.csproj -> TestUtilities.csproj"]
+	node62 -> node66 [color=cornflowerblue tooltip="DjangoUITests.csproj -> Analysis.csproj"]
+	node62 -> node13 [color=cornflowerblue tooltip="DjangoUITests.csproj -> DebuggerUITests.csproj"]
+	node62 -> node70 [color=cornflowerblue tooltip="DjangoUITests.csproj -> Debugger.csproj"]
+	node62 -> node72 [color=cornflowerblue tooltip="DjangoUITests.csproj -> VSCommon.csproj"]
+	node62 -> node73 [color=cornflowerblue tooltip="DjangoUITests.csproj -> TestUtilities.Python.Analysis.csproj"]
+	node63 -> node66 [color=cornflowerblue tooltip="AnalysisMemoryTester.csproj -> Analysis.csproj"]
+	node63 -> node30 [color=cornflowerblue tooltip="AnalysisMemoryTester.csproj -> Common.csproj"]
+	node65 -> node30 [color=cornflowerblue tooltip="Debugger.Concord.csproj -> Common.csproj"]
+	node65 -> node33 [color=blue tooltip="Debugger.Concord.csproj -> DebuggerHelper.vcxproj"]
+	node65 -> node66 [color=cornflowerblue tooltip="Debugger.Concord.csproj -> Analysis.csproj"]
+	node65 -> node71 [color=blue tooltip="Debugger.Concord.csproj -> DebuggerHelperX86.vcxproj"]
+	node65 -> node75 [color=green tooltip="Debugger.Concord.csproj -> Attacher.csproj"]
+	node73 -> node30 [color=cornflowerblue tooltip="TestUtilities.Python.Analysis.csproj -> Common.csproj"]
+	node73 -> node1 [color=green tooltip="TestUtilities.Python.Analysis.csproj -> RunElevated.csproj"]
+	node73 -> node32 [color=cornflowerblue tooltip="TestUtilities.Python.Analysis.csproj -> VSInterpreters.csproj"]
+	node73 -> node38 [color=cornflowerblue tooltip="TestUtilities.Python.Analysis.csproj -> TestUtilities.csproj"]
+	node73 -> node66 [color=cornflowerblue tooltip="TestUtilities.Python.Analysis.csproj -> Analysis.csproj"]
+	node73 -> node67 [color=green tooltip="TestUtilities.Python.Analysis.csproj -> Analyzer.csproj"]
+	node67 -> node66 [color=cornflowerblue tooltip="Analyzer.csproj -> Analysis.csproj"]
+	node67 -> node30 [color=cornflowerblue tooltip="Analyzer.csproj -> Common.csproj"]
+	node67 -> node56 [color=cornflowerblue tooltip="Analyzer.csproj -> Ipc.Json.csproj"]
+	node74 -> node2 [color=cornflowerblue tooltip="ReplWindowUITestsRunner.csproj -> ReplWindowUITests.csproj"]
+	node74 -> node53 [color=cornflowerblue tooltip="ReplWindowUITestsRunner.csproj -> TestRunnerInterop.csproj"]
+	node69 -> node16 [color=cornflowerblue tooltip="MockVsTests.csproj -> TestSccPackage.csproj"]
+	node69 -> node38 [color=cornflowerblue tooltip="MockVsTests.csproj -> TestUtilities.csproj"]
+	node0 -> node30 [color=cornflowerblue tooltip="ProfilingUITests.csproj -> Common.csproj"]
+	node0 -> node53 [color=cornflowerblue tooltip="ProfilingUITests.csproj -> TestRunnerInterop.csproj"]
+	node0 -> node32 [color=cornflowerblue tooltip="ProfilingUITests.csproj -> VSInterpreters.csproj"]
+	node0 -> node34 [color=cornflowerblue tooltip="ProfilingUITests.csproj -> TestUtilities.UI.csproj"]
+	node0 -> node3 [color=cornflowerblue tooltip="ProfilingUITests.csproj -> PythonTools.csproj"]
+	node0 -> node38 [color=cornflowerblue tooltip="ProfilingUITests.csproj -> TestUtilities.csproj"]
+	node0 -> node66 [color=cornflowerblue tooltip="ProfilingUITests.csproj -> Analysis.csproj"]
+	node0 -> node27 [color=cornflowerblue tooltip="ProfilingUITests.csproj -> Profiling.csproj"]
+	node0 -> node44 [color=cornflowerblue tooltip="ProfilingUITests.csproj -> TestUtilities.Python.csproj"]
+	node0 -> node73 [color=cornflowerblue tooltip="ProfilingUITests.csproj -> TestUtilities.Python.Analysis.csproj"]
+	node68 -> node66 [color=cornflowerblue tooltip="EnvironmentsListHost.csproj -> Analysis.csproj"]
+	node68 -> node55 [color=cornflowerblue tooltip="EnvironmentsListHost.csproj -> EnvironmentsList.csproj"]
+	node68 -> node67 [color=green tooltip="EnvironmentsListHost.csproj -> Analyzer.csproj"]
+	node68 -> node32 [color=cornflowerblue tooltip="EnvironmentsListHost.csproj -> VSInterpreters.csproj"]
+	node70 -> node30 [color=cornflowerblue tooltip="Debugger.csproj -> Common.csproj"]
+	node70 -> node56 [color=cornflowerblue tooltip="Debugger.csproj -> Ipc.Json.csproj"]
+	node70 -> node32 [color=cornflowerblue tooltip="Debugger.csproj -> VSInterpreters.csproj"]
+	node70 -> node66 [color=cornflowerblue tooltip="Debugger.csproj -> Analysis.csproj"]
+	node70 -> node72 [color=cornflowerblue tooltip="Debugger.csproj -> VSCommon.csproj"]
+	node70 -> node75 [color=green tooltip="Debugger.csproj -> Attacher.csproj"]
+	node50 -> node30 [color=cornflowerblue tooltip="VSInterpretersTests.csproj -> Common.csproj"]
+	node50 -> node32 [color=cornflowerblue tooltip="VSInterpretersTests.csproj -> VSInterpreters.csproj"]
+	node50 -> node38 [color=cornflowerblue tooltip="VSInterpretersTests.csproj -> TestUtilities.csproj"]
+	node50 -> node66 [color=cornflowerblue tooltip="VSInterpretersTests.csproj -> Analysis.csproj"]
+	node50 -> node72 [color=cornflowerblue tooltip="VSInterpretersTests.csproj -> VSCommon.csproj"]
+	node50 -> node73 [color=cornflowerblue tooltip="VSInterpretersTests.csproj -> TestUtilities.Python.Analysis.csproj"]
+	node75 -> node23 [color=blue tooltip="Attacher.csproj -> PyDebugAttach.vcxproj"]
+	node75 -> node30 [color=cornflowerblue tooltip="Attacher.csproj -> Common.csproj"]
+	node75 -> node36 [color=blue tooltip="Attacher.csproj -> PyDebugAttachX86.vcxproj"]
+	subgraph cluster_G__Alexander_Work_Projects_others_PTVS {
+		label="G:/Alexander/Work/Projects/others/PTVS/"
+		subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Common {
+			label="Common/"
+			subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Common_Tests {
+				label="Common/Tests/"
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Common_Tests_MockVsTests {
+					label="Common/Tests/MockVsTests/"
+					node69 [label="MockVsTests.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Common\Tests\MockVsTests\MockVsTests.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Common_Tests_SccPackage {
+					label="Common/Tests/SccPackage/"
+					node16 [label="TestSccPackage.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Common\Tests\SccPackage\TestSccPackage.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Common_Tests_Utilities_UI {
+					label="Common/Tests/Utilities.UI/"
+					node34 [label="TestUtilities.UI.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Common\Tests\Utilities.UI\TestUtilities.UI.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Common_Tests_Utilities {
+					label="Common/Tests/Utilities/"
+					node38 [label="TestUtilities.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Common\Tests\Utilities\TestUtilities.csproj"]
+				}
+			}
+		}
+		subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python {
+			label="Python/"
+			subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product {
+				label="Python/Product/"
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_Analysis {
+					label="Python/Product/Analysis/"
+					node66 [label="Analysis.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\Analysis\Analysis.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_AnalysisBrowser {
+					label="Python/Product/AnalysisBrowser/"
+					node20 [label="AnalysisBrowser.csproj" color=greenyellow tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\AnalysisBrowser\AnalysisBrowser.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_AnalysisMemoryTester {
+					label="Python/Product/AnalysisMemoryTester/"
+					node63 [label="AnalysisMemoryTester.csproj" color=green tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\AnalysisMemoryTester\AnalysisMemoryTester.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_Analyzer {
+					label="Python/Product/Analyzer/"
+					node67 [label="Analyzer.csproj" color=green tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\Analyzer\Analyzer.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_Attacher {
+					label="Python/Product/Attacher/"
+					node75 [label="Attacher.csproj" color=green tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\Attacher\Attacher.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_AttacherX86 {
+					label="Python/Product/AttacherX86/"
+					node46 [label="AttacherX86.csproj" color=green tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\AttacherX86\AttacherX86.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_BuildTasks {
+					label="Python/Product/BuildTasks/"
+					node5 [label="BuildTasks.Core.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\BuildTasks\BuildTasks.Core.csproj"]
+					node11 [label="BuildTasks.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\BuildTasks\BuildTasks.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_Common {
+					label="Python/Product/Common/"
+					node30 [label="Common.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\Common\Common.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_Cookiecutter {
+					label="Python/Product/Cookiecutter/"
+					node51 [label="Cookiecutter.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\Cookiecutter\Cookiecutter.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_Core {
+					label="Python/Product/Core/"
+					node21 [label="Core.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\Core\Core.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_Debugger_Concord {
+					label="Python/Product/Debugger.Concord/"
+					node65 [label="Debugger.Concord.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\Debugger.Concord\Debugger.Concord.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_Debugger {
+					label="Python/Product/Debugger/"
+					node70 [label="Debugger.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\Debugger\Debugger.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_DebuggerHelper {
+					label="Python/Product/DebuggerHelper/"
+					node33 [label="DebuggerHelper.vcxproj" color=blue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\DebuggerHelper\DebuggerHelper.vcxproj"]
+					node71 [label="DebuggerHelperX86.vcxproj" color=blue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\DebuggerHelper\DebuggerHelperX86.vcxproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_Django_Analysis {
+					label="Python/Product/Django.Analysis/"
+					node18 [label="Django.Analysis.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\Django.Analysis\Django.Analysis.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_Django {
+					label="Python/Product/Django/"
+					node52 [label="Django.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\Django\Django.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_EnvironmentsList {
+					label="Python/Product/EnvironmentsList/"
+					node55 [label="EnvironmentsList.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\EnvironmentsList\EnvironmentsList.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_EnvironmentsListHost {
+					label="Python/Product/EnvironmentsListHost/"
+					node68 [label="EnvironmentsListHost.csproj" color=greenyellow tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\EnvironmentsListHost\EnvironmentsListHost.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_Ipc_Json {
+					label="Python/Product/Ipc.Json/"
+					node56 [label="Ipc.Json.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\Ipc.Json\Ipc.Json.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_IronPython {
+					label="Python/Product/IronPython/"
+					node61 [label="IronPython.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\IronPython\IronPython.csproj"]
+					node26 [label="IronPython.Interpreter.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\IronPython\IronPython.Interpreter.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_IronPythonResolver {
+					label="Python/Product/IronPythonResolver/"
+					node48 [label="IronPythonResolver.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\IronPythonResolver\IronPythonResolver.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_Profiling {
+					label="Python/Product/Profiling/"
+					node27 [label="Profiling.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\Profiling\Profiling.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_ProjectWizards {
+					label="Python/Product/ProjectWizards/"
+					node8 [label="ProjectWizards.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\ProjectWizards\ProjectWizards.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_PyDebugAttach {
+					label="Python/Product/PyDebugAttach/"
+					node23 [label="PyDebugAttach.vcxproj" color=blue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\PyDebugAttach\PyDebugAttach.vcxproj"]
+					node36 [label="PyDebugAttachX86.vcxproj" color=blue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\PyDebugAttach\PyDebugAttachX86.vcxproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_PythonTools {
+					label="Python/Product/PythonTools/"
+					node3 [label="PythonTools.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\PythonTools\PythonTools.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_RunElevated {
+					label="Python/Product/RunElevated/"
+					node1 [label="RunElevated.csproj" color=green tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\RunElevated\RunElevated.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_TestAdapter_Analysis {
+					label="Python/Product/TestAdapter.Analysis/"
+					node35 [label="TestAdapter.Analysis.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\TestAdapter.Analysis\TestAdapter.Analysis.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_TestAdapter_Executor {
+					label="Python/Product/TestAdapter.Executor/"
+					node4 [label="TestAdapter.Executor.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\TestAdapter.Executor\TestAdapter.Executor.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_TestAdapter {
+					label="Python/Product/TestAdapter/"
+					node43 [label="TestAdapter.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\TestAdapter\TestAdapter.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_Uwp_Interpreter {
+					label="Python/Product/Uwp.Interpreter/"
+					node37 [label="Uwp.Interpreter.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\Uwp.Interpreter\Uwp.Interpreter.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_Uwp_Wizards {
+					label="Python/Product/Uwp.Wizards/"
+					node47 [label="Uwp.Wizards.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\Uwp.Wizards\Uwp.Wizards.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_Uwp {
+					label="Python/Product/Uwp/"
+					node31 [label="Uwp.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\Uwp\Uwp.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_VCDebugLauncher {
+					label="Python/Product/VCDebugLauncher/"
+					node10 [label="VCDebugLauncher.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\VCDebugLauncher\VCDebugLauncher.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_VSCommon {
+					label="Python/Product/VSCommon/"
+					node72 [label="VSCommon.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\VSCommon\VSCommon.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_VSInterpreters {
+					label="Python/Product/VSInterpreters/"
+					node32 [label="VSInterpreters.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\VSInterpreters\VSInterpreters.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_VsPyProf {
+					label="Python/Product/VsPyProf/"
+					node49 [label="VsPyProf.vcxproj" color=blue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\VsPyProf\VsPyProf.vcxproj"]
+					node24 [label="VsPyProfX86.vcxproj" color=blue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\VsPyProf\VsPyProfX86.vcxproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_WebRole {
+					label="Python/Product/WebRole/"
+					node45 [label="WebRole.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\WebRole\WebRole.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_Workspace {
+					label="Python/Product/Workspace/"
+					node57 [label="Workspace.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\Workspace\Workspace.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_Wsl {
+					label="Python/Product/Wsl/"
+					node28 [label="Wsl.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\Wsl\Wsl.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_XamlDesignerSupport {
+					label="Python/Product/XamlDesignerSupport/"
+					node6 [label="XamlDesignerSupport.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\XamlDesignerSupport\XamlDesignerSupport.csproj"]
+				}
+			}
+			subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Templates {
+				label="Python/Templates/"
+				node64 [label="Templates.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Templates\Templates.csproj"]
+			}
+			subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Tests {
+				label="Python/Tests/"
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Tests_Analysis {
+					label="Python/Tests/Analysis/"
+					node60 [label="AnalysisTests.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Tests\Analysis\AnalysisTests.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Tests_CookiecutterTests {
+					label="Python/Tests/CookiecutterTests/"
+					node7 [label="CookiecutterTests.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Tests\CookiecutterTests\CookiecutterTests.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Tests_Core_UI {
+					label="Python/Tests/Core.UI/"
+					node54 [label="PythonToolsUITests.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Tests\Core.UI\PythonToolsUITests.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Tests_Core {
+					label="Python/Tests/Core/"
+					node14 [label="PythonToolsTests.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Tests\Core\PythonToolsTests.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Tests_DebuggerTests {
+					label="Python/Tests/DebuggerTests/"
+					node17 [label="DebuggerTests.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Tests\DebuggerTests\DebuggerTests.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Tests_DebuggerUITests {
+					label="Python/Tests/DebuggerUITests/"
+					node13 [label="DebuggerUITests.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Tests\DebuggerUITests\DebuggerUITests.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Tests_DebuggerUITestsRunner {
+					label="Python/Tests/DebuggerUITestsRunner/"
+					node42 [label="DebuggerUITestsRunner.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Tests\DebuggerUITestsRunner\DebuggerUITestsRunner.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Tests_DjangoTests {
+					label="Python/Tests/DjangoTests/"
+					node59 [label="DjangoTests.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Tests\DjangoTests\DjangoTests.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Tests_DjangoUITests {
+					label="Python/Tests/DjangoUITests/"
+					node62 [label="DjangoUITests.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Tests\DjangoUITests\DjangoUITests.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Tests_DjangoUITestsRunner {
+					label="Python/Tests/DjangoUITestsRunner/"
+					node12 [label="DjangoUITestsRunner.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Tests\DjangoUITestsRunner\DjangoUITestsRunner.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Tests_FastCgi {
+					label="Python/Tests/FastCgi/"
+					node25 [label="FastCgiTest.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Tests\FastCgi\FastCgiTest.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Tests_IpcJsonTests {
+					label="Python/Tests/IpcJsonTests/"
+					node9 [label="IpcJsonTests.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Tests\IpcJsonTests\IpcJsonTests.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Tests_IronPython {
+					label="Python/Tests/IronPython/"
+					node29 [label="IronPythonTests.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Tests\IronPython\IronPythonTests.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Tests_ProfilingTests {
+					label="Python/Tests/ProfilingTests/"
+					node22 [label="ProfilingTests.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Tests\ProfilingTests\ProfilingTests.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Tests_ProfilingUITests {
+					label="Python/Tests/ProfilingUITests/"
+					node0 [label="ProfilingUITests.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Tests\ProfilingUITests\ProfilingUITests.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Tests_ProfilingUITestsRunner {
+					label="Python/Tests/ProfilingUITestsRunner/"
+					node41 [label="ProfilingUITestsRunner.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Tests\ProfilingUITestsRunner\ProfilingUITestsRunner.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Tests_ProjectUITests {
+					label="Python/Tests/ProjectUITests/"
+					node39 [label="ProjectUITests.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Tests\ProjectUITests\ProjectUITests.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Tests_ProjectUITestsRunner {
+					label="Python/Tests/ProjectUITestsRunner/"
+					node15 [label="ProjectUITestsRunner.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Tests\ProjectUITestsRunner\ProjectUITestsRunner.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Tests_PythonToolsMockTests {
+					label="Python/Tests/PythonToolsMockTests/"
+					node19 [label="PythonToolsMockTests.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Tests\PythonToolsMockTests\PythonToolsMockTests.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Tests_PythonToolsUITestsRunner {
+					label="Python/Tests/PythonToolsUITestsRunner/"
+					node58 [label="PythonToolsUITestsRunner.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Tests\PythonToolsUITestsRunner\PythonToolsUITestsRunner.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Tests_ReplWindowUITests {
+					label="Python/Tests/ReplWindowUITests/"
+					node2 [label="ReplWindowUITests.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Tests\ReplWindowUITests\ReplWindowUITests.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Tests_ReplWindowUITestsRunner {
+					label="Python/Tests/ReplWindowUITestsRunner/"
+					node74 [label="ReplWindowUITestsRunner.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Tests\ReplWindowUITestsRunner\ReplWindowUITestsRunner.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Tests_TestAdapterTests {
+					label="Python/Tests/TestAdapterTests/"
+					node40 [label="TestAdapterTests.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Tests\TestAdapterTests\TestAdapterTests.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Tests_TestRunnerInterop {
+					label="Python/Tests/TestRunnerInterop/"
+					node53 [label="TestRunnerInterop.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Tests\TestRunnerInterop\TestRunnerInterop.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Tests_Utilities_Python_Analysis {
+					label="Python/Tests/Utilities.Python.Analysis/"
+					node73 [label="TestUtilities.Python.Analysis.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Tests\Utilities.Python.Analysis\TestUtilities.Python.Analysis.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Tests_Utilities_Python {
+					label="Python/Tests/Utilities.Python/"
+					node44 [label="TestUtilities.Python.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Tests\Utilities.Python\TestUtilities.Python.csproj"]
+				}
+				subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Tests_VSInterpretersTests {
+					label="Python/Tests/VSInterpretersTests/"
+					node50 [label="VSInterpretersTests.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Tests\VSInterpretersTests\VSInterpretersTests.csproj"]
+				}
+			}
+		}
+	}
+}

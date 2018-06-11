@@ -1,0 +1,196 @@
+// Dependencies for projects
+digraph Dependencies {
+	color=grey fontcolor=darkgreen fontsize=16 labelloc=t rankdir=LR style="dotted, bold"
+	node [color=brown fillcolor=beige penwidth=2 shape=box style="filled, rounded"]
+	edge [color=brown]
+	label=Dependencies
+	node0 -> node10 [color=cornflowerblue tooltip="PythonTools.csproj -> Ipc.Json.csproj"]
+	node0 -> node11 [color=cornflowerblue tooltip="PythonTools.csproj -> Debugger.Concord.csproj"]
+	node0 -> node2 [color=cornflowerblue tooltip="PythonTools.csproj -> Common.csproj"]
+	node0 -> node3 [color=cornflowerblue tooltip="PythonTools.csproj -> Debugger.csproj"]
+	node0 -> node21 [color=green tooltip="PythonTools.csproj -> Analyzer.csproj"]
+	node0 -> node12 [color=green tooltip="PythonTools.csproj -> RunElevated.csproj"]
+	node0 -> node22 [color=cornflowerblue tooltip="PythonTools.csproj -> VSInterpreters.csproj"]
+	node0 -> node16 [color=cornflowerblue tooltip="PythonTools.csproj -> Analysis.csproj"]
+	node0 -> node17 [color=cornflowerblue tooltip="PythonTools.csproj -> BuildTasks.csproj"]
+	node0 -> node19 [color=green tooltip="PythonTools.csproj -> Attacher.csproj"]
+	node0 -> node20 [color=cornflowerblue tooltip="PythonTools.csproj -> EnvironmentsList.csproj"]
+	node0 -> node24 [color=cornflowerblue tooltip="PythonTools.csproj -> VSCommon.csproj"]
+	node1 -> node2 [color=cornflowerblue tooltip="TestAdapter.Analysis.csproj -> Common.csproj"]
+	node1 -> node16 [color=cornflowerblue tooltip="TestAdapter.Analysis.csproj -> Analysis.csproj"]
+	node3 -> node10 [color=cornflowerblue tooltip="Debugger.csproj -> Ipc.Json.csproj"]
+	node3 -> node2 [color=cornflowerblue tooltip="Debugger.csproj -> Common.csproj"]
+	node3 -> node22 [color=cornflowerblue tooltip="Debugger.csproj -> VSInterpreters.csproj"]
+	node3 -> node16 [color=cornflowerblue tooltip="Debugger.csproj -> Analysis.csproj"]
+	node3 -> node19 [color=green tooltip="Debugger.csproj -> Attacher.csproj"]
+	node3 -> node24 [color=cornflowerblue tooltip="Debugger.csproj -> VSCommon.csproj"]
+	node4 -> node1 [color=cornflowerblue tooltip="TestAdapter.csproj -> TestAdapter.Analysis.csproj"]
+	node4 -> node10 [color=cornflowerblue tooltip="TestAdapter.csproj -> Ipc.Json.csproj"]
+	node4 -> node2 [color=cornflowerblue tooltip="TestAdapter.csproj -> Common.csproj"]
+	node4 -> node21 [color=green tooltip="TestAdapter.csproj -> Analyzer.csproj"]
+	node4 -> node15 [color=cornflowerblue tooltip="TestAdapter.csproj -> TestAdapter.Executor.csproj"]
+	node4 -> node22 [color=cornflowerblue tooltip="TestAdapter.csproj -> VSInterpreters.csproj"]
+	node4 -> node16 [color=cornflowerblue tooltip="TestAdapter.csproj -> Analysis.csproj"]
+	node4 -> node24 [color=cornflowerblue tooltip="TestAdapter.csproj -> VSCommon.csproj"]
+	node6 -> node2 [color=cornflowerblue tooltip="ProjectWizards.csproj -> Common.csproj"]
+	node6 -> node16 [color=cornflowerblue tooltip="ProjectWizards.csproj -> Analysis.csproj"]
+	node6 -> node24 [color=cornflowerblue tooltip="ProjectWizards.csproj -> VSCommon.csproj"]
+	node7 -> node2 [color=cornflowerblue tooltip="XamlDesignerSupport.csproj -> Common.csproj"]
+	node7 -> node16 [color=cornflowerblue tooltip="XamlDesignerSupport.csproj -> Analysis.csproj"]
+	node7 -> node24 [color=cornflowerblue tooltip="XamlDesignerSupport.csproj -> VSCommon.csproj"]
+	node9 -> node0 [color=cornflowerblue tooltip="Workspace.csproj -> PythonTools.csproj"]
+	node9 -> node10 [color=cornflowerblue tooltip="Workspace.csproj -> Ipc.Json.csproj"]
+	node9 -> node2 [color=cornflowerblue tooltip="Workspace.csproj -> Common.csproj"]
+	node9 -> node3 [color=cornflowerblue tooltip="Workspace.csproj -> Debugger.csproj"]
+	node9 -> node21 [color=green tooltip="Workspace.csproj -> Analyzer.csproj"]
+	node9 -> node22 [color=cornflowerblue tooltip="Workspace.csproj -> VSInterpreters.csproj"]
+	node9 -> node16 [color=cornflowerblue tooltip="Workspace.csproj -> Analysis.csproj"]
+	node9 -> node24 [color=cornflowerblue tooltip="Workspace.csproj -> VSCommon.csproj"]
+	node11 -> node2 [color=cornflowerblue tooltip="Debugger.Concord.csproj -> Common.csproj"]
+	node11 -> node19 [color=green tooltip="Debugger.Concord.csproj -> Attacher.csproj"]
+	node11 -> node16 [color=cornflowerblue tooltip="Debugger.Concord.csproj -> Analysis.csproj"]
+	node12 -> node2 [color=cornflowerblue tooltip="RunElevated.csproj -> Common.csproj"]
+	node14 -> node19 [color=green tooltip="AttacherX86.csproj -> Attacher.csproj"]
+	node15 -> node2 [color=cornflowerblue tooltip="TestAdapter.Executor.csproj -> Common.csproj"]
+	node15 -> node16 [color=cornflowerblue tooltip="TestAdapter.Executor.csproj -> Analysis.csproj"]
+	node15 -> node10 [color=cornflowerblue tooltip="TestAdapter.Executor.csproj -> Ipc.Json.csproj"]
+	node17 -> node2 [color=cornflowerblue tooltip="BuildTasks.csproj -> Common.csproj"]
+	node17 -> node22 [color=cornflowerblue tooltip="BuildTasks.csproj -> VSInterpreters.csproj"]
+	node17 -> node16 [color=cornflowerblue tooltip="BuildTasks.csproj -> Analysis.csproj"]
+	node17 -> node24 [color=cornflowerblue tooltip="BuildTasks.csproj -> VSCommon.csproj"]
+	node18 -> node0 [color=cornflowerblue tooltip="Core.csproj -> PythonTools.csproj"]
+	node18 -> node1 [color=cornflowerblue tooltip="Core.csproj -> TestAdapter.Analysis.csproj"]
+	node18 -> node2 [color=cornflowerblue tooltip="Core.csproj -> Common.csproj"]
+	node18 -> node3 [color=cornflowerblue tooltip="Core.csproj -> Debugger.csproj"]
+	node18 -> node4 [color=cornflowerblue tooltip="Core.csproj -> TestAdapter.csproj"]
+	node18 -> node5 [color=blue tooltip="Core.csproj -> PyDebugAttachX86.vcxproj"]
+	node18 -> node6 [color=cornflowerblue tooltip="Core.csproj -> ProjectWizards.csproj"]
+	node18 -> node7 [color=cornflowerblue tooltip="Core.csproj -> XamlDesignerSupport.csproj"]
+	node18 -> node8 [color=blue tooltip="Core.csproj -> PyDebugAttach.vcxproj"]
+	node18 -> node9 [color=cornflowerblue tooltip="Core.csproj -> Workspace.csproj"]
+	node18 -> node10 [color=cornflowerblue tooltip="Core.csproj -> Ipc.Json.csproj"]
+	node18 -> node11 [color=cornflowerblue tooltip="Core.csproj -> Debugger.Concord.csproj"]
+	node18 -> node12 [color=green tooltip="Core.csproj -> RunElevated.csproj"]
+	node18 -> node13 [color=blue tooltip="Core.csproj -> DebuggerHelper.vcxproj"]
+	node18 -> node14 [color=green tooltip="Core.csproj -> AttacherX86.csproj"]
+	node18 -> node15 [color=cornflowerblue tooltip="Core.csproj -> TestAdapter.Executor.csproj"]
+	node18 -> node16 [color=cornflowerblue tooltip="Core.csproj -> Analysis.csproj"]
+	node18 -> node17 [color=cornflowerblue tooltip="Core.csproj -> BuildTasks.csproj"]
+	node18 -> node19 [color=green tooltip="Core.csproj -> Attacher.csproj"]
+	node18 -> node20 [color=cornflowerblue tooltip="Core.csproj -> EnvironmentsList.csproj"]
+	node18 -> node21 [color=green tooltip="Core.csproj -> Analyzer.csproj"]
+	node18 -> node22 [color=cornflowerblue tooltip="Core.csproj -> VSInterpreters.csproj"]
+	node18 -> node23 [color=blue tooltip="Core.csproj -> DebuggerHelperX86.vcxproj"]
+	node18 -> node24 [color=cornflowerblue tooltip="Core.csproj -> VSCommon.csproj"]
+	node19 -> node2 [color=cornflowerblue tooltip="Attacher.csproj -> Common.csproj"]
+	node20 -> node2 [color=cornflowerblue tooltip="EnvironmentsList.csproj -> Common.csproj"]
+	node20 -> node21 [color=green tooltip="EnvironmentsList.csproj -> Analyzer.csproj"]
+	node20 -> node22 [color=cornflowerblue tooltip="EnvironmentsList.csproj -> VSInterpreters.csproj"]
+	node20 -> node16 [color=cornflowerblue tooltip="EnvironmentsList.csproj -> Analysis.csproj"]
+	node20 -> node24 [color=cornflowerblue tooltip="EnvironmentsList.csproj -> VSCommon.csproj"]
+	node21 -> node2 [color=cornflowerblue tooltip="Analyzer.csproj -> Common.csproj"]
+	node21 -> node16 [color=cornflowerblue tooltip="Analyzer.csproj -> Analysis.csproj"]
+	node21 -> node10 [color=cornflowerblue tooltip="Analyzer.csproj -> Ipc.Json.csproj"]
+	node22 -> node2 [color=cornflowerblue tooltip="VSInterpreters.csproj -> Common.csproj"]
+	node22 -> node16 [color=cornflowerblue tooltip="VSInterpreters.csproj -> Analysis.csproj"]
+	node22 -> node21 [color=green tooltip="VSInterpreters.csproj -> Analyzer.csproj"]
+	node24 -> node2 [color=cornflowerblue tooltip="VSCommon.csproj -> Common.csproj"]
+	node24 -> node16 [color=cornflowerblue tooltip="VSCommon.csproj -> Analysis.csproj"]
+	subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product {
+		label="G:/Alexander/Work/Projects/others/PTVS/Python/Product/"
+		subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_Analysis {
+			label="Analysis/"
+			node16 [label="Analysis.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\Analysis\Analysis.csproj"]
+		}
+		subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_Analyzer {
+			label="Analyzer/"
+			node21 [label="Analyzer.csproj" color=green tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\Analyzer\Analyzer.csproj"]
+		}
+		subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_Attacher {
+			label="Attacher/"
+			node19 [label="Attacher.csproj" color=green tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\Attacher\Attacher.csproj"]
+		}
+		subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_AttacherX86 {
+			label="AttacherX86/"
+			node14 [label="AttacherX86.csproj" color=green tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\AttacherX86\AttacherX86.csproj"]
+		}
+		subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_BuildTasks {
+			label="BuildTasks/"
+			node17 [label="BuildTasks.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\BuildTasks\BuildTasks.csproj"]
+		}
+		subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_Common {
+			label="Common/"
+			node2 [label="Common.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\Common\Common.csproj"]
+		}
+		subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_Core {
+			label="Core/"
+			node18 [label="Core.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\Core\Core.csproj"]
+		}
+		subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_Debugger_Concord {
+			label="Debugger.Concord/"
+			node11 [label="Debugger.Concord.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\Debugger.Concord\Debugger.Concord.csproj"]
+		}
+		subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_Debugger {
+			label="Debugger/"
+			node3 [label="Debugger.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\Debugger\Debugger.csproj"]
+		}
+		subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_DebuggerHelper {
+			label="DebuggerHelper/"
+			node13 [label="DebuggerHelper.vcxproj" color=blue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\DebuggerHelper\DebuggerHelper.vcxproj"]
+			node23 [label="DebuggerHelperX86.vcxproj" color=blue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\DebuggerHelper\DebuggerHelperX86.vcxproj"]
+		}
+		subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_EnvironmentsList {
+			label="EnvironmentsList/"
+			node20 [label="EnvironmentsList.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\EnvironmentsList\EnvironmentsList.csproj"]
+		}
+		subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_Ipc_Json {
+			label="Ipc.Json/"
+			node10 [label="Ipc.Json.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\Ipc.Json\Ipc.Json.csproj"]
+		}
+		subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_ProjectWizards {
+			label="ProjectWizards/"
+			node6 [label="ProjectWizards.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\ProjectWizards\ProjectWizards.csproj"]
+		}
+		subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_PyDebugAttach {
+			label="PyDebugAttach/"
+			node8 [label="PyDebugAttach.vcxproj" color=blue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\PyDebugAttach\PyDebugAttach.vcxproj"]
+			node5 [label="PyDebugAttachX86.vcxproj" color=blue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\PyDebugAttach\PyDebugAttachX86.vcxproj"]
+		}
+		subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_PythonTools {
+			label="PythonTools/"
+			node0 [label="PythonTools.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\PythonTools\PythonTools.csproj"]
+		}
+		subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_RunElevated {
+			label="RunElevated/"
+			node12 [label="RunElevated.csproj" color=green tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\RunElevated\RunElevated.csproj"]
+		}
+		subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_TestAdapter_Analysis {
+			label="TestAdapter.Analysis/"
+			node1 [label="TestAdapter.Analysis.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\TestAdapter.Analysis\TestAdapter.Analysis.csproj"]
+		}
+		subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_TestAdapter_Executor {
+			label="TestAdapter.Executor/"
+			node15 [label="TestAdapter.Executor.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\TestAdapter.Executor\TestAdapter.Executor.csproj"]
+		}
+		subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_TestAdapter {
+			label="TestAdapter/"
+			node4 [label="TestAdapter.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\TestAdapter\TestAdapter.csproj"]
+		}
+		subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_VSCommon {
+			label="VSCommon/"
+			node24 [label="VSCommon.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\VSCommon\VSCommon.csproj"]
+		}
+		subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_VSInterpreters {
+			label="VSInterpreters/"
+			node22 [label="VSInterpreters.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\VSInterpreters\VSInterpreters.csproj"]
+		}
+		subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_Workspace {
+			label="Workspace/"
+			node9 [label="Workspace.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\Workspace\Workspace.csproj"]
+		}
+		subgraph cluster_G__Alexander_Work_Projects_others_PTVS_Python_Product_XamlDesignerSupport {
+			label="XamlDesignerSupport/"
+			node7 [label="XamlDesignerSupport.csproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\PTVS\Python\Product\XamlDesignerSupport\XamlDesignerSupport.csproj"]
+		}
+	}
+}

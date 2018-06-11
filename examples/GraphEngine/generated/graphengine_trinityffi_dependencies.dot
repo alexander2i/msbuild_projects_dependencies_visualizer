@@ -1,0 +1,52 @@
+// Dependencies for projects
+digraph Dependencies {
+	color=grey fontcolor=darkgreen fontsize=16 labelloc=t rankdir=LR style="dotted, bold"
+	node [color=brown fillcolor=beige penwidth=2 shape=box style="filled, rounded"]
+	edge [color=brown]
+	label=Dependencies
+	node0 -> node7 [color=brown tooltip="Trinity.FFI.Playground.csproj -> Trinity.FFI.Python.csproj"]
+	node3 -> node5 [color=brown tooltip="Trinity.FFI.AutoCode.csproj -> Trinity.FFI.csproj"]
+	node5 -> node8 [color=cornflowerblue tooltip="Trinity.FFI.csproj -> Trinity.FFI.Metagen.fsproj"]
+	node7 -> node5 [color=brown tooltip="Trinity.FFI.Python.csproj -> Trinity.FFI.csproj"]
+	node9 -> node8 [color=cornflowerblue tooltip="Trinity.FFI.Metagen.UnitTests.csproj -> Trinity.FFI.Metagen.fsproj"]
+	subgraph cluster_G__Alexander_Work_Projects_others_GraphEngine_src_Modules_Trinity_FFI {
+		label="G:/Alexander/Work/Projects/others/GraphEngine/src/Modules/Trinity.FFI/"
+		subgraph cluster_G__Alexander_Work_Projects_others_GraphEngine_src_Modules_Trinity_FFI_Trinity_FFI_AutoCode {
+			label="Trinity.FFI.AutoCode/"
+			node3 [label="Trinity.FFI.AutoCode.csproj" color=green tooltip="G:\Alexander\Work\Projects\others\GraphEngine\src\Modules\Trinity.FFI\Trinity.FFI.AutoCode\Trinity.FFI.AutoCode.csproj"]
+		}
+		subgraph cluster_G__Alexander_Work_Projects_others_GraphEngine_src_Modules_Trinity_FFI_Trinity_FFI_Metagen_UnitTests {
+			label="Trinity.FFI.Metagen.UnitTests/"
+			node9 [label="Trinity.FFI.Metagen.UnitTests.csproj" color=brown tooltip="G:\Alexander\Work\Projects\others\GraphEngine\src\Modules\Trinity.FFI\Trinity.FFI.Metagen.UnitTests\Trinity.FFI.Metagen.UnitTests.csproj"]
+		}
+		subgraph cluster_G__Alexander_Work_Projects_others_GraphEngine_src_Modules_Trinity_FFI_Trinity_FFI_Metagen {
+			label="Trinity.FFI.Metagen/"
+			node8 [label="Trinity.FFI.Metagen.fsproj" color=cornflowerblue tooltip="G:\Alexander\Work\Projects\others\GraphEngine\src\Modules\Trinity.FFI\Trinity.FFI.Metagen\Trinity.FFI.Metagen.fsproj"]
+		}
+		subgraph cluster_G__Alexander_Work_Projects_others_GraphEngine_src_Modules_Trinity_FFI_Trinity_FFI_Native {
+			label="Trinity.FFI.Native/"
+			node2 [label="Trinity.FFI.Native.vcxproj" color=blue tooltip="G:\Alexander\Work\Projects\others\GraphEngine\src\Modules\Trinity.FFI\Trinity.FFI.Native\Trinity.FFI.Native.vcxproj"]
+		}
+		subgraph cluster_G__Alexander_Work_Projects_others_GraphEngine_src_Modules_Trinity_FFI_Trinity_FFI_Playground {
+			label="Trinity.FFI.Playground/"
+			node0 [label="Trinity.FFI.Playground.csproj" color=green tooltip="G:\Alexander\Work\Projects\others\GraphEngine\src\Modules\Trinity.FFI\Trinity.FFI.Playground\Trinity.FFI.Playground.csproj"]
+		}
+		subgraph cluster_G__Alexander_Work_Projects_others_GraphEngine_src_Modules_Trinity_FFI_Trinity_FFI_Python_UnitTests {
+			label="Trinity.FFI.Python.UnitTests/"
+			node6 [label="Trinity.FFI.Python.UnitTests.csproj" color=brown tooltip="G:\Alexander\Work\Projects\others\GraphEngine\src\Modules\Trinity.FFI\Trinity.FFI.Python.UnitTests\Trinity.FFI.Python.UnitTests.csproj"]
+		}
+		subgraph cluster_G__Alexander_Work_Projects_others_GraphEngine_src_Modules_Trinity_FFI_Trinity_FFI_Python {
+			label="Trinity.FFI.Python/"
+			node7 [label="Trinity.FFI.Python.csproj" color=brown tooltip="G:\Alexander\Work\Projects\others\GraphEngine\src\Modules\Trinity.FFI\Trinity.FFI.Python\Trinity.FFI.Python.csproj"]
+		}
+		subgraph cluster_G__Alexander_Work_Projects_others_GraphEngine_src_Modules_Trinity_FFI_Trinity_FFI_UnitTests {
+			label="Trinity.FFI.UnitTests/"
+			node4 [label="Trinity.FFI.UnitTests.csproj" color=brown tooltip="G:\Alexander\Work\Projects\others\GraphEngine\src\Modules\Trinity.FFI\Trinity.FFI.UnitTests\Trinity.FFI.UnitTests.csproj"]
+		}
+		subgraph cluster_G__Alexander_Work_Projects_others_GraphEngine_src_Modules_Trinity_FFI_Trinity_FFI {
+			label="Trinity.FFI/"
+			node5 [label="Trinity.FFI.csproj" color=brown tooltip="G:\Alexander\Work\Projects\others\GraphEngine\src\Modules\Trinity.FFI\Trinity.FFI\Trinity.FFI.csproj"]
+		}
+	}
+	node1 [label="G:/Alexander/Work/Projects/others/GraphEngine/src/Modules/Trinity.FFI/pythonnet/src/runtime/Python.Runtime.15.csproj" color=red shape=box style=dashed]
+}

@@ -1,0 +1,166 @@
+// Dependencies for projects
+digraph Dependencies {
+	color=grey fontcolor=darkgreen fontsize=16 labelloc=t rankdir=LR style="dotted, bold"
+	node [color=brown fillcolor=beige penwidth=2 shape=box style="filled, rounded"]
+	edge [color=brown]
+	label=Dependencies
+	node0 -> node12 [color=brown tooltip="System.Collections.Specialized.csproj -> System.Runtime.Extensions.csproj"]
+	node0 -> node7 [color=brown tooltip="System.Collections.Specialized.csproj -> System.Collections.NonGeneric.csproj"]
+	node0 -> node9 [color=brown tooltip="System.Collections.Specialized.csproj -> System.Runtime.csproj"]
+	node1 -> node9 [color=brown tooltip="System.Security.Principal.csproj -> System.Runtime.csproj"]
+	node2 -> node9 [color=brown tooltip="Microsoft.Win32.Primitives.csproj -> System.Runtime.csproj"]
+	node4 -> node11 [color=brown tooltip="System.Runtime.InteropServices.csproj -> System.Reflection.Primitives.csproj"]
+	node4 -> node8 [color=brown tooltip="System.Runtime.InteropServices.csproj -> System.Reflection.csproj"]
+	node4 -> node13 [color=brown tooltip="System.Runtime.InteropServices.csproj -> System.Runtime.Handles.csproj"]
+	node4 -> node9 [color=brown tooltip="System.Runtime.InteropServices.csproj -> System.Runtime.csproj"]
+	node3 -> node2 [color=brown tooltip="System.Net.Primitives.csproj -> Microsoft.Win32.Primitives.csproj"]
+	node3 -> node4 [color=brown tooltip="System.Net.Primitives.csproj -> System.Runtime.InteropServices.csproj"]
+	node3 -> node5 [color=brown tooltip="System.Net.Primitives.csproj -> System.Memory.csproj"]
+	node3 -> node9 [color=brown tooltip="System.Net.Primitives.csproj -> System.Runtime.csproj"]
+	node3 -> node13 [color=brown tooltip="System.Net.Primitives.csproj -> System.Runtime.Handles.csproj"]
+	node5 -> node9 [color=brown tooltip="System.Memory.csproj -> System.Runtime.csproj"]
+	node5 -> node4 [color=brown tooltip="System.Memory.csproj -> System.Runtime.InteropServices.csproj"]
+	node6 -> node9 [color=brown tooltip="System.Text.Encoding.csproj -> System.Runtime.csproj"]
+	node7 -> node12 [color=brown tooltip="System.Collections.NonGeneric.csproj -> System.Runtime.Extensions.csproj"]
+	node7 -> node9 [color=brown tooltip="System.Collections.NonGeneric.csproj -> System.Runtime.csproj"]
+	node7 -> node10 [color=brown tooltip="System.Collections.NonGeneric.csproj -> System.Globalization.csproj"]
+	node10 -> node9 [color=brown tooltip="System.Globalization.csproj -> System.Runtime.csproj"]
+	node11 -> node9 [color=brown tooltip="System.Reflection.Primitives.csproj -> System.Runtime.csproj"]
+	node12 -> node1 [color=brown tooltip="System.Runtime.Extensions.csproj -> System.Security.Principal.csproj"]
+	node12 -> node9 [color=brown tooltip="System.Runtime.Extensions.csproj -> System.Runtime.csproj"]
+	node13 -> node9 [color=brown tooltip="System.Runtime.Handles.csproj -> System.Runtime.csproj"]
+	node15 -> node0 [color=brown tooltip="System.Net.WebSockets.csproj -> System.Collections.Specialized.csproj"]
+	node15 -> node1 [color=brown tooltip="System.Net.WebSockets.csproj -> System.Security.Principal.csproj"]
+	node15 -> node2 [color=brown tooltip="System.Net.WebSockets.csproj -> Microsoft.Win32.Primitives.csproj"]
+	node15 -> node3 [color=brown tooltip="System.Net.WebSockets.csproj -> System.Net.Primitives.csproj"]
+	node15 -> node9 [color=brown tooltip="System.Net.WebSockets.csproj -> System.Runtime.csproj"]
+	node15 -> node14 [color=brown tooltip="System.Net.WebSockets.csproj -> System.Threading.Tasks.csproj"]
+	node15 -> node16 [color=brown tooltip="System.Net.WebSockets.csproj -> System.IO.csproj"]
+	node14 -> node9 [color=brown tooltip="System.Threading.Tasks.csproj -> System.Runtime.csproj"]
+	node8 -> node9 [color=brown tooltip="System.Reflection.csproj -> System.Runtime.csproj"]
+	node16 -> node12 [color=brown tooltip="System.IO.csproj -> System.Runtime.Extensions.csproj"]
+	node16 -> node9 [color=brown tooltip="System.IO.csproj -> System.Runtime.csproj"]
+	node16 -> node6 [color=brown tooltip="System.IO.csproj -> System.Text.Encoding.csproj"]
+	subgraph cluster_G__Alexander_Work_Projects_others_corefx_src {
+		label="G:/Alexander/Work/Projects/others/corefx/src/"
+		subgraph cluster_G__Alexander_Work_Projects_others_corefx_src_Microsoft_Win32_Primitives {
+			label="Microsoft.Win32.Primitives/"
+			subgraph cluster_G__Alexander_Work_Projects_others_corefx_src_Microsoft_Win32_Primitives_ref {
+				label="Microsoft.Win32.Primitives/ref/"
+				node2 [label="Microsoft.Win32.Primitives.csproj" color=brown tooltip="G:\Alexander\Work\Projects\others\corefx\src\Microsoft.Win32.Primitives\ref\Microsoft.Win32.Primitives.csproj"]
+			}
+		}
+		subgraph cluster_G__Alexander_Work_Projects_others_corefx_src_System_Collections_NonGeneric {
+			label="System.Collections.NonGeneric/"
+			subgraph cluster_G__Alexander_Work_Projects_others_corefx_src_System_Collections_NonGeneric_ref {
+				label="System.Collections.NonGeneric/ref/"
+				node7 [label="System.Collections.NonGeneric.csproj" color=brown tooltip="G:\Alexander\Work\Projects\others\corefx\src\System.Collections.NonGeneric\ref\System.Collections.NonGeneric.csproj"]
+			}
+		}
+		subgraph cluster_G__Alexander_Work_Projects_others_corefx_src_System_Collections_Specialized {
+			label="System.Collections.Specialized/"
+			subgraph cluster_G__Alexander_Work_Projects_others_corefx_src_System_Collections_Specialized_ref {
+				label="System.Collections.Specialized/ref/"
+				node0 [label="System.Collections.Specialized.csproj" color=brown tooltip="G:\Alexander\Work\Projects\others\corefx\src\System.Collections.Specialized\ref\System.Collections.Specialized.csproj"]
+			}
+		}
+		subgraph cluster_G__Alexander_Work_Projects_others_corefx_src_System_Globalization {
+			label="System.Globalization/"
+			subgraph cluster_G__Alexander_Work_Projects_others_corefx_src_System_Globalization_ref {
+				label="System.Globalization/ref/"
+				node10 [label="System.Globalization.csproj" color=brown tooltip="G:\Alexander\Work\Projects\others\corefx\src\System.Globalization\ref\System.Globalization.csproj"]
+			}
+		}
+		subgraph cluster_G__Alexander_Work_Projects_others_corefx_src_System_IO {
+			label="System.IO/"
+			subgraph cluster_G__Alexander_Work_Projects_others_corefx_src_System_IO_ref {
+				label="System.IO/ref/"
+				node16 [label="System.IO.csproj" color=brown tooltip="G:\Alexander\Work\Projects\others\corefx\src\System.IO\ref\System.IO.csproj"]
+			}
+		}
+		subgraph cluster_G__Alexander_Work_Projects_others_corefx_src_System_Memory {
+			label="System.Memory/"
+			subgraph cluster_G__Alexander_Work_Projects_others_corefx_src_System_Memory_ref {
+				label="System.Memory/ref/"
+				node5 [label="System.Memory.csproj" color=brown tooltip="G:\Alexander\Work\Projects\others\corefx\src\System.Memory\ref\System.Memory.csproj"]
+			}
+		}
+		subgraph cluster_G__Alexander_Work_Projects_others_corefx_src_System_Net_Primitives {
+			label="System.Net.Primitives/"
+			subgraph cluster_G__Alexander_Work_Projects_others_corefx_src_System_Net_Primitives_ref {
+				label="System.Net.Primitives/ref/"
+				node3 [label="System.Net.Primitives.csproj" color=brown tooltip="G:\Alexander\Work\Projects\others\corefx\src\System.Net.Primitives\ref\System.Net.Primitives.csproj"]
+			}
+		}
+		subgraph cluster_G__Alexander_Work_Projects_others_corefx_src_System_Net_WebSockets {
+			label="System.Net.WebSockets/"
+			subgraph cluster_G__Alexander_Work_Projects_others_corefx_src_System_Net_WebSockets_ref {
+				label="System.Net.WebSockets/ref/"
+				node15 [label="System.Net.WebSockets.csproj" color=brown tooltip="G:\Alexander\Work\Projects\others\corefx\src\System.Net.WebSockets\ref\System.Net.WebSockets.csproj"]
+			}
+		}
+		subgraph cluster_G__Alexander_Work_Projects_others_corefx_src_System_Reflection_Primitives {
+			label="System.Reflection.Primitives/"
+			subgraph cluster_G__Alexander_Work_Projects_others_corefx_src_System_Reflection_Primitives_ref {
+				label="System.Reflection.Primitives/ref/"
+				node11 [label="System.Reflection.Primitives.csproj" color=brown tooltip="G:\Alexander\Work\Projects\others\corefx\src\System.Reflection.Primitives\ref\System.Reflection.Primitives.csproj"]
+			}
+		}
+		subgraph cluster_G__Alexander_Work_Projects_others_corefx_src_System_Reflection {
+			label="System.Reflection/"
+			subgraph cluster_G__Alexander_Work_Projects_others_corefx_src_System_Reflection_ref {
+				label="System.Reflection/ref/"
+				node8 [label="System.Reflection.csproj" color=brown tooltip="G:\Alexander\Work\Projects\others\corefx\src\System.Reflection\ref\System.Reflection.csproj"]
+			}
+		}
+		subgraph cluster_G__Alexander_Work_Projects_others_corefx_src_System_Runtime_Extensions {
+			label="System.Runtime.Extensions/"
+			subgraph cluster_G__Alexander_Work_Projects_others_corefx_src_System_Runtime_Extensions_ref {
+				label="System.Runtime.Extensions/ref/"
+				node12 [label="System.Runtime.Extensions.csproj" color=brown tooltip="G:\Alexander\Work\Projects\others\corefx\src\System.Runtime.Extensions\ref\System.Runtime.Extensions.csproj"]
+			}
+		}
+		subgraph cluster_G__Alexander_Work_Projects_others_corefx_src_System_Runtime_Handles {
+			label="System.Runtime.Handles/"
+			subgraph cluster_G__Alexander_Work_Projects_others_corefx_src_System_Runtime_Handles_ref {
+				label="System.Runtime.Handles/ref/"
+				node13 [label="System.Runtime.Handles.csproj" color=brown tooltip="G:\Alexander\Work\Projects\others\corefx\src\System.Runtime.Handles\ref\System.Runtime.Handles.csproj"]
+			}
+		}
+		subgraph cluster_G__Alexander_Work_Projects_others_corefx_src_System_Runtime_InteropServices {
+			label="System.Runtime.InteropServices/"
+			subgraph cluster_G__Alexander_Work_Projects_others_corefx_src_System_Runtime_InteropServices_ref {
+				label="System.Runtime.InteropServices/ref/"
+				node4 [label="System.Runtime.InteropServices.csproj" color=brown tooltip="G:\Alexander\Work\Projects\others\corefx\src\System.Runtime.InteropServices\ref\System.Runtime.InteropServices.csproj"]
+			}
+		}
+		subgraph cluster_G__Alexander_Work_Projects_others_corefx_src_System_Runtime {
+			label="System.Runtime/"
+			subgraph cluster_G__Alexander_Work_Projects_others_corefx_src_System_Runtime_ref {
+				label="System.Runtime/ref/"
+				node9 [label="System.Runtime.csproj" color=brown tooltip="G:\Alexander\Work\Projects\others\corefx\src\System.Runtime\ref\System.Runtime.csproj"]
+			}
+		}
+		subgraph cluster_G__Alexander_Work_Projects_others_corefx_src_System_Security_Principal {
+			label="System.Security.Principal/"
+			subgraph cluster_G__Alexander_Work_Projects_others_corefx_src_System_Security_Principal_ref {
+				label="System.Security.Principal/ref/"
+				node1 [label="System.Security.Principal.csproj" color=brown tooltip="G:\Alexander\Work\Projects\others\corefx\src\System.Security.Principal\ref\System.Security.Principal.csproj"]
+			}
+		}
+		subgraph cluster_G__Alexander_Work_Projects_others_corefx_src_System_Text_Encoding {
+			label="System.Text.Encoding/"
+			subgraph cluster_G__Alexander_Work_Projects_others_corefx_src_System_Text_Encoding_ref {
+				label="System.Text.Encoding/ref/"
+				node6 [label="System.Text.Encoding.csproj" color=brown tooltip="G:\Alexander\Work\Projects\others\corefx\src\System.Text.Encoding\ref\System.Text.Encoding.csproj"]
+			}
+		}
+		subgraph cluster_G__Alexander_Work_Projects_others_corefx_src_System_Threading_Tasks {
+			label="System.Threading.Tasks/"
+			subgraph cluster_G__Alexander_Work_Projects_others_corefx_src_System_Threading_Tasks_ref {
+				label="System.Threading.Tasks/ref/"
+				node14 [label="System.Threading.Tasks.csproj" color=brown tooltip="G:\Alexander\Work\Projects\others\corefx\src\System.Threading.Tasks\ref\System.Threading.Tasks.csproj"]
+			}
+		}
+	}
+}
