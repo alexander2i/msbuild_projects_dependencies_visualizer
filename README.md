@@ -4,7 +4,17 @@ This project is a simple python script which allows to visualize dependencies fo
 The result of the script execution is a simple *.gv file. Which can be rendered with the [graphviz](https://www.graphviz.org/) utilities like dot.exe. Using command line parameter `--with-render` the script can automatically call specified (default: dot.exe) graphviz utility after generation *.gv file.
 
 ## Examples
-![https://github.com/Microsoft/PTVS](examples/PTVS/generated/ptvs_full_dependencies.dot.svg)
+<table>
+  <tr>
+    <td style="width:50%; height:50%">
+      <image src="examples/PTVS/generated/ptvs_core_dependencies.dot.svg" style="max-height:100%; max-width:100%" alt="examples/PTVS/generated/ptvs_core_dependencies.dot.svg" title="examples/PTVS/generated/ptvs_core_dependencies.dot.svg">
+    </td>
+    <td style="width:50%; height:50%">
+      <image src="examples/corefx/generated/corefx_common_dependencies.dot.svg" style="max-height:100%; max-width:100%" alt="examples/corefx/generated/corefx_common_dependencies.dot.svg" title="examples/corefx/generated/corefx_common_dependencies.dot.svg">
+    </td>
+  </tr>
+  <tr>
+</table>
 
 ## Features
 * Building dependencies for a solution (option: `--sln`)
