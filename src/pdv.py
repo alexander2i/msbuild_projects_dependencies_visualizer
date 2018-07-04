@@ -786,6 +786,7 @@ def parse_arguments(args_list):
                                 nargs='+',
                                 choices=[t.value for t in MSBuildItems],
                                 metavar=('Item1', 'Item2'),
+                                required=True,
                                 help='MSBuild xml item(s). '
                                      'Possible items: %(choices)s')
     projects_group.add_argument('--dep-masks',
